@@ -1,12 +1,9 @@
-import logo from './logo.svg';
-import './App.css';
+import LisitingPage from './Pages/ListingPage/ListingPage'
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <h1>Hello</h1>
-      </header>
+      <LisitingPage />
     </div>
   );
 }
