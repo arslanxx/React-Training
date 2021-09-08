@@ -1,9 +1,11 @@
-import LisitingPage from './Pages/ListingPage/ListingPage'
+import LisitingPage from "./Pages/ListingPage/ListingPage";
 
 function App() {
   return (
     <div className="App">
-      <LisitingPage />
+      <header className="App-header">
+        <LisitingPage />
+      </header>
     </div>
   );
 }

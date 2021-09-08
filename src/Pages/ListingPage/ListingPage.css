@@ -1,0 +1,24 @@
+.no_data {
+  display: flex;
+  justify-content: center;
+}
+
+.todo_row {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.todo_form {
+  display: flex;
+  justify-content: space-between;
+  width: 20%;
+  padding-top: 2%;
+}
+
+.listing_clear {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 25%;
+}

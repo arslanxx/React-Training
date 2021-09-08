@@ -1,4 +1,11 @@
 .header {
     height: 5rem;
-    background-color: aqua;
+  background-color: #282c34;
+
+display: flex;
+justify-content: center;}
+
+.header span{
+    font-size: 3rem;
+    color: #fff;
 }
