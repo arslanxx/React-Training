@@ -1,4 +1,4 @@
-import React, { Component, Fragment } from "react";
+import React, { Fragment, useState, useEffect } from "react";
 import Header from "../../Components/Header/Header";
 import NotFound from "../../Components/NotFound/NotFound";
 import TextField from "@material-ui/core/TextField";
@@ -7,101 +7,82 @@ import "./ListingPage.css";
 import { getObjLS, setObjLS } from "../../Components/Helper/Helper";
 import TodoList from "../TodoList.js/TodoList";
 
-export default class ListingPage extends Component {
-  state = {
-    newToDo: "",
-    taskList: [],
-  };
-  componentDidMount() {
-    getObjLS("taskList") &&
-      this.setState({
-        ...this.state,
-        taskList: getObjLS("taskList").split(","),
-      });
-  }
+export default function ListingPage() {
+  const [newToDo, setNewToDo] = useState("");
+  const [taskList, setTaskList] = useState([]);
 
-  onSubmit = () => {
-    this.state.taskList.push(this.state.newToDo);
-    setObjLS("taskList", this.state.taskList);
-    this.setState({
-      newToDo: "",
-      taskList: this.state.taskList,
-    });
+  useEffect(() => {
+    getObjLS("taskList") && setTaskList(getObjLS("taskList").split(","));
+  }, []);
+  useEffect(() => {
+    setObjLS("taskList", taskList);
+  }, [taskList]);
+
+  const onSubmit = () => {
+    taskList.push(newToDo);
+    setObjLS("taskList", taskList);
+    setNewToDo("");
   };
 
-  handleText = (value) => {
-    this.setState({ newToDo: value });
+  const handleText = (value) => {
+    setNewToDo(value);
   };
 
-  handleSingleDelete = (i) => {
-    this.state.taskList.splice(i, 1);
-    setObjLS("taskList", this.state.taskList);
-    this.setState({
-      ...this.state,
-      taskList: this.state.taskList,
-    });
+  const handleSingleDelete = (i) => {
+    taskList.splice(i, 1);
+    setTaskList([...taskList]);
   };
 
-  handleDeleteAll = (i) => {
-    this.state.taskList = [];
-    setObjLS("taskList", this.state.taskList);
-    this.setState({
-      ...this.state,
-      taskList: this.state.taskList,
-    });
+  const handleDeleteAll = (i) => {
+    setTaskList([]);
   };
-  render() {
-    return (
-      <Fragment>
-        <Header />
-        <div className="todo_row">
-          <div className="todo_form">
-            <TextField
-              id="standard-basic"
-              placeholder="Todo Name"
-              autoFocus={true}
-              label="Todo Name"
-              onChange={(e) => {
-                this.handleText(e.target.value);
-              }}
-              value={this.state.newToDo}
-              error={this.state.newToDo === "" && true}
-            />
+  return (
+    <Fragment>
+      <Header />
+      <div className="todo_row">
+        <div className="todo_form">
+          <TextField
+            id="standard-basic"
+            placeholder="Todo Name"
+            autoFocus={true}
+            label="Todo Name"
+            onChange={(e) => {
+              handleText(e.target.value);
+            }}
+            value={newToDo}
+            error={newToDo === "" && true}
+          />
+          <Button
+            type="button"
+            onClick={(e) => onSubmit(e)}
+            disabled={newToDo === ""}
+            variant="contained"
+            color="primary"
+          >
+            Create
+          </Button>
+        </div>
+      </div>
+      {taskList.length > 0 ? (
+        <Fragment>
+          <div className="listing_clear">
+            <h1>Listing</h1>
             <Button
               type="button"
-              onClick={(e) => this.onSubmit(e)}
-              disabled={this.state.newToDo === ""}
+              onClick={() => handleDeleteAll()}
               variant="contained"
-              color="primary"
+              color="secondary"
             >
-              Create
+              Clear All
             </Button>
           </div>
+          <TodoList list={taskList} handleSingleDelete={handleSingleDelete} />
+        </Fragment>
+      ) : (
+        <div className="no_data">
+          <NotFound />
         </div>
-        {this.state.taskList.length > 0 ? (
-          <Fragment>
-            <div className="listing_clear">
-              <h1>Listing</h1>
-              <Button
-                type="button"
-                onClick={() => this.handleDeleteAll()}
-                variant="contained"
-                color="secondary"
-              >
-                Clear All
-              </Button>
-            </div>
-            <TodoList
-              list={this.state.taskList}
-              handleSingleDelete={this.handleSingleDelete}
-            />
-          </Fragment>
-        ) : (
-          <div className="no_data">
-            <NotFound />
-          </div>
-        )}
-      </Fragment>
-    );
-  }
+      )}
+    </Fragment>
+  );
 }

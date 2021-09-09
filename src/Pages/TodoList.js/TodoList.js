@@ -1,38 +1,35 @@
 import { Button } from "@material-ui/core";
-import React, { Component, Fragment } from "react";
+import React, { Fragment, useState, useEffect } from "react";
 
-export default class TodoList extends Component {
-  state = {
-    listing: [],
-  };
-  componentDidMount() {
-    this.setState({ listing: this.props.list });
-  }
-  render() {
-    const { listing } = this.state;
-    return (
-      <ul>
-        {listing.map((elem, index) => {
-          return (
-            <Fragment>
-              <li
-                style={{ display: "list-item" }}
-                id={`section-${elem}-${index}`}
+export default function TodoList({ list, handleSingleDelete }) {
+  const [listing, setListing] = useState(list);
+  useEffect(() => {
+    setListing(list);
+  }, [list]);
+  return (
+    <ul>
+      {listing.map((elem, index) => {
+        return (
+          <Fragment>
+            <li
+              style={{ display: "list-item" }}
+              key={`section-${elem}-${index}-list`}
+            >
+              <h3 id={`section-${elem}-${index}-name`}>{elem}</h3>
+              <Button
+                type="button"
+                id={`section-${elem}-${index}-btn`}
+                onClick={(e) => handleSingleDelete(index)}
+                variant="contained"
+                color="secondary"
               >
-                <h3>{elem}</h3>
-                <Button
-                  type="button"
-                  onClick={(e) => this.props.handleSingleDelete(index)}
-                  variant="contained"
-                  color="secondary"
-                >
-                  Delete
-                </Button>
-              </li>
-            </Fragment>
-          );
-        })}
-      </ul>
-    );
-  }
+                Delete
+              </Button>
+            </li>
+          </Fragment>
+        );
+      })}
+    </ul>
+  );
+  // }
 }
