@@ -1,26 +1,22 @@
-import React, { Fragment, useState, useEffect } from "react";
+import React, { Fragment, useState } from "react";
 import Header from "../../Components/Header/Header";
 import NotFound from "../../Components/NotFound/NotFound";
 import TextField from "@material-ui/core/TextField";
 import Button from "@material-ui/core/Button";
 import "./ListingPage.css";
-import { getObjLS, setObjLS } from "../../Components/Helper/Helper";
+import { connect } from "react-redux";
 import TodoList from "../TodoList.js/TodoList";
+import {
+  createTodo,
+  deleteAllTodo,
+  deleteTodo,
+} from "../../redux/Todo/todoActions";
 
-export default function ListingPage() {
+function ListingPage(props) {
   const [newToDo, setNewToDo] = useState("");
-  const [taskList, setTaskList] = useState([]);
-
-  useEffect(() => {
-    getObjLS("taskList") && setTaskList(getObjLS("taskList").split(","));
-  }, []);
-  useEffect(() => {
-    setObjLS("taskList", taskList);
-  }, [taskList]);
 
   const onSubmit = () => {
-    taskList.push(newToDo);
-    setObjLS("taskList", taskList);
+    props.createTodo(newToDo);
     setNewToDo("");
   };
 
@@ -29,13 +25,9 @@ export default function ListingPage() {
   };
 
   const handleSingleDelete = (i) => {
-    taskList.splice(i, 1);
-    setTaskList([...taskList]);
+    props.deleteTodo(i);
   };
 
-  const handleDeleteAll = (i) => {
-    setTaskList([]);
-  };
   return (
     <Fragment>
       <Header />
@@ -63,20 +55,23 @@ export default function ListingPage() {
           </Button>
         </div>
       </div>
-      {taskList.length > 0 ? (
+      {props.taskList.length > 0 ? (
         <Fragment>
           <div className="listing_clear">
             <h1>Listing</h1>
             <Button
               type="button"
-              onClick={() => handleDeleteAll()}
+              onClick={() => props.deleteAllTodo()}
               variant="contained"
               color="secondary"
             >
               Clear All
             </Button>
           </div>
-          <TodoList list={taskList} handleSingleDelete={handleSingleDelete} />
+          <TodoList
+            list={props.taskList}
+            handleSingleDelete={handleSingleDelete}
+          />
         </Fragment>
       ) : (
         <div className="no_data">
@@ -86,3 +81,16 @@ export default function ListingPage() {
     </Fragment>
   );
 }
+const mapStateToProps = (state) => {
+  return {
+    taskList: state.taskList,
+  };
+};
+const mapDispatchToProps = (dispatch) => {
+  return {
+    createTodo: (param) => dispatch(createTodo(param)),
+    deleteAllTodo: () => dispatch(deleteAllTodo()),
+    deleteTodo: (param) => dispatch(deleteTodo(param)),
+  };
+};
+export default connect(mapStateToProps, mapDispatchToProps)(ListingPage);
