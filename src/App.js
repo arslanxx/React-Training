@@ -1,12 +1,14 @@
 import "./App.css";
-import AxiosList from "./Axios/AxiosList";
-import FetchList from "./Fetch/FetchList";
+import UsersList from "./UsersList/UsersList";
+import store from "./redux/store";
+import { Provider } from "react-redux";
 function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <AxiosList />
-        <FetchList />
+        <Provider store={store}>
+          <UsersList />
+        </Provider>
       </header>
     </div>
   );
