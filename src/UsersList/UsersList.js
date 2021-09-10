@@ -3,7 +3,6 @@ import { connect } from "react-redux";
 import { fetchUsers } from "../redux/user/userActions";
 
 function UsersList({ userData, loading, error, fetchUsers }) {
-  console.log(userData);
   useEffect(() => {
     fetchUsers();
   }, []);
