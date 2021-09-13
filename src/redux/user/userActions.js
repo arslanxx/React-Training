@@ -25,17 +25,17 @@ export const fetchUsersFailure = (error) => {
   };
 };
 
-export const fetchUsers = () => {
-  return (dispatch) => {
-    dispatch(fetchUsersRequest());
-    axios
-      .get(`https://jsonplaceholder.typicode.com/users`)
-      .then((response) => {
-        const users = response.data;
-        dispatch(fetchUsersSuccess(users));
-      })
-      .catch((error) => {
-        dispatch(FETCH_USERS_FAILURE(error.message));
-      });
-  };
-};
+// export const fetchUsers = () => {
+//   return (dispatch) => {
+//     dispatch(fetchUsersRequest());
+//     axios
+//       .get(`https://jsonplaceholder.typicode.com/users`)
+//       .then((response) => {
+//         const users = response.data;
+//         dispatch(fetchUsersSuccess(users));
+//       })
+//       .catch((error) => {
+//         dispatch(FETCH_USERS_FAILURE(error.message));
+//       });
+//   };
+// };

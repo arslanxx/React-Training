@@ -1,10 +1,10 @@
 import React, { useState, Fragment, useEffect } from "react";
 import { connect } from "react-redux";
-import { fetchUsers } from "../redux/user/userActions";
+import { fetchUsersRequest } from "../redux/user/userActions";
 
-function UsersList({ userData, loading, error, fetchUsers }) {
+function UsersList({ userData, loading, error, usersReq }) {
   useEffect(() => {
-    fetchUsers();
+    usersReq();
   }, []);
   return (
     <Fragment>
@@ -42,7 +42,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    fetchUsers: () => dispatch(fetchUsers()),
+    usersReq: () => dispatch(fetchUsersRequest()),
   };
 };
 
