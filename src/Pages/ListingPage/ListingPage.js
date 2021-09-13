@@ -35,11 +35,11 @@ export default class ListingPage extends Component {
 
   handleSingleDelete = (i) => {
     this.state.taskList.splice(i, 1);
-    setObjLS("taskList", this.state.taskList);
     this.setState({
       ...this.state,
       taskList: this.state.taskList,
     });
+    setObjLS("taskList", this.state.taskList);
   };
 
   handleDeleteAll = (i) => {
@@ -49,6 +49,17 @@ export default class ListingPage extends Component {
       ...this.state,
       taskList: this.state.taskList,
     });
+  };
+  updateListing = (newList) => {
+    this.setState(
+      {
+        ...this.state,
+        taskList: newList,
+      },
+      () => {
+        setObjLS("taskList", this.state.taskList);
+      }
+    );
   };
   render() {
     return (
@@ -94,6 +105,7 @@ export default class ListingPage extends Component {
             <TodoList
               list={this.state.taskList}
               handleSingleDelete={this.handleSingleDelete}
+              updateListing={this.updateListing}
             />
           </Fragment>
         ) : (
