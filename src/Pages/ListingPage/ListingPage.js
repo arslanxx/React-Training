@@ -10,6 +10,7 @@ import {
   createTodo,
   deleteAllTodo,
   deleteTodo,
+  updateTodo,
 } from "../../redux/Todo/todoActions";
 
 function ListingPage(props) {
@@ -26,6 +27,9 @@ function ListingPage(props) {
 
   const handleSingleDelete = (i) => {
     props.deleteTodo(i);
+  };
+  const updateListing = (newList) => {
+    props.updateTodo(newList);
   };
 
   return (
@@ -70,6 +74,7 @@ function ListingPage(props) {
           </div>
           <TodoList
             list={props.taskList}
+            updateListing={updateListing}
             handleSingleDelete={handleSingleDelete}
           />
         </Fragment>
@@ -91,6 +96,7 @@ const mapDispatchToProps = (dispatch) => {
     createTodo: (param) => dispatch(createTodo(param)),
     deleteAllTodo: () => dispatch(deleteAllTodo()),
     deleteTodo: (param) => dispatch(deleteTodo(param)),
+    updateTodo: (param) => dispatch(updateTodo(param)),
   };
 };
 export default connect(mapStateToProps, mapDispatchToProps)(ListingPage);

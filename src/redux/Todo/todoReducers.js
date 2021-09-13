@@ -21,11 +21,11 @@ const todoReducer = (state = initialState, action) => {
         ...state,
         taskList: state.taskList.filter((elem, i) => i !== action.payload),
       };
-    // case UPDATE_TODO:
-    //   return {
-    //     taskList: state.taskList.splice(action.payload, 1),
-    //     newTodo: "",
-    //   };
+    case UPDATE_TODO:
+      return {
+        taskList: [...action.payload],
+        newTodo: "",
+      };
     default:
       return state;
   }
