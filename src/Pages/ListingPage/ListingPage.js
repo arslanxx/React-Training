@@ -4,7 +4,7 @@ import NotFound from "../../Components/NotFound/NotFound";
 import TextField from "@material-ui/core/TextField";
 import Button from "@material-ui/core/Button";
 import "./ListingPage.css";
-import { getObjLS, setObjLS } from "../../Components/Helper/Helper";
+import { getObjLS, setObjLS } from "../../Helper/Helper";
 import TodoList from "../TodoList.js/TodoList";
 
 export default function ListingPage() {
@@ -35,6 +35,10 @@ export default function ListingPage() {
 
   const handleDeleteAll = (i) => {
     setTaskList([]);
+  };
+  const updateListing = (newList) => {
+    setTaskList([...newList]);
+    setObjLS("taskList", newList);
   };
   return (
     <Fragment>
@@ -76,7 +80,11 @@ export default function ListingPage() {
               Clear All
             </Button>
           </div>
-          <TodoList list={taskList} handleSingleDelete={handleSingleDelete} />
+          <TodoList
+            list={taskList}
+            handleSingleDelete={handleSingleDelete}
+            updateListing={updateListing}
+          />
         </Fragment>
       ) : (
         <div className="no_data">
