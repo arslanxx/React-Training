@@ -1,6 +1,11 @@
-import React, { useState, Fragment, useEffect } from "react";
+import React, { Fragment, useEffect } from "react";
 import { connect } from "react-redux";
-import { fetchUsersRequest } from "../redux/user/userActions";
+import { fetchUsersRequest } from "../../store/user/userActions";
+import {
+  getUserData,
+  getLoadingStatus,
+  getError,
+} from "../../store/selectors/userSelector";
 
 function UsersList({ userData, loading, error, usersReq }) {
   useEffect(() => {
@@ -10,7 +15,9 @@ function UsersList({ userData, loading, error, usersReq }) {
     <Fragment>
       <div className="listing">
         <div>
-          <h3 style={{ color: "#66D9EF" }}>Fetched Data Redux Thunk</h3>
+          <h3 style={{ color: "#66D9EF" }}>
+            Fetched Data using Redux Saga and Immutable.js
+          </h3>
         </div>
         <ul>
           {loading ? (
@@ -18,6 +25,7 @@ function UsersList({ userData, loading, error, usersReq }) {
           ) : error ? (
             <h2>{error}</h2>
           ) : (
+            userData &&
             userData.map((person, index) => (
               <li
                 id={`fetch-${JSON.stringify(person)}-${index}`}
@@ -34,9 +42,9 @@ function UsersList({ userData, loading, error, usersReq }) {
 }
 const mapStateToProps = (state) => {
   return {
-    userData: state.users,
-    loading: state.loading,
-    error: state.error,
+    userData: getUserData(state),
+    loading: getLoadingStatus(state),
+    error: getError(state),
   };
 };
 
