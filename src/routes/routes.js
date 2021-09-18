@@ -1,4 +1,4 @@
-import MovieComponent from "../components/MovieComponent/MovieComponent";
+import MovieComponent from "../components/MovieComponent";
 
 export const routes = [
   {

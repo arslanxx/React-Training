@@ -23,7 +23,7 @@ export default function SearchBar() {
             }}
             alt="Moviedb"
           />
-          <TextField id="outlined-basic" label="Outlined" variant="outlined" />
+          {/* <TextField id="outlined-basic" label="Outlined" variant="outlined" /> */}
         </Box>
       </Container>
     </React.Fragment>
