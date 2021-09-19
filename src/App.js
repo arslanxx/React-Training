@@ -10,13 +10,14 @@ function App() {
   return (
     <div className="App">
       <Provider store={store}>
-        <Header />
         <BrowserRouter>
+          <Header />
           <Switch>
             {routes.map((route, index) => {
               return (
                 <Route
                   key={JSON.stringify(route) + index}
+                  exact
                   path={route.path}
                   component={route.Component}
                 />
@@ -24,8 +25,8 @@ function App() {
             })}
             <Redirect to="" />
           </Switch>
+          <Footer />
         </BrowserRouter>
-        <Footer />
       </Provider>
     </div>
   );

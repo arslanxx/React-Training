@@ -1,5 +1,5 @@
 import React, { Fragment, useEffect } from "react";
-import { Box, display } from "@mui/system";
+import { Box } from "@mui/system";
 import Card from "../../shared/card";
 import SearchBar from "../SearchBar/index";
 import { FETCH_MOVIE_REQUEST } from "../../store/constants";
@@ -26,7 +26,13 @@ export default function MovieComponent({
         {movieData && (
           <Grid container>
             {movieData.map((movie, index) => (
-              <Grid item xs={6} lg={3} xl={2}>
+              <Grid
+                key={JSON.stringify(movie) + index}
+                item
+                xs={6}
+                lg={3}
+                xl={2}
+              >
                 <Card
                   key={JSON.stringify(movie) + index}
                   title={movie.title}

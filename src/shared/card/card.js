@@ -8,11 +8,18 @@ import { IMAGE_PATH } from "../../store/constants";
 
 export default function ActionAreaCard({ title, overView, image }) {
   return (
-    <Card sx={{ maxWidth: 345 }}>
+    <Card
+      sx={{
+        maxWidth: 345,
+        height: "45vh",
+        marginTop: "5%",
+        marginBottom: "5%",
+      }}
+    >
       <CardActionArea>
         <CardMedia
           component="img"
-          height="140"
+          height="240"
           image={IMAGE_PATH + image}
           alt="green iguana"
         />
@@ -20,9 +27,9 @@ export default function ActionAreaCard({ title, overView, image }) {
           <Typography gutterBottom variant="h5" component="div">
             {title}
           </Typography>
-          <Typography variant="body2" color="text.secondary">
-            {/* {overView} */}
-          </Typography>
+          {/* <Typography variant="body2" color="text.secondary">
+            {overView}
+          </Typography> */}
         </CardContent>
       </CardActionArea>
     </Card>
