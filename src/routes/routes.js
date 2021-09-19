@@ -1,5 +1,7 @@
 import MovieComponent from "../components/MovieComponent";
 import Person from "../components/PersonComponent";
+import TvShowComponent from "../components/TvShowComponent";
+
 export const routes = [
   {
     path: "/",
@@ -8,5 +10,9 @@ export const routes = [
   {
     path: "/people",
     Component: Person,
+  },
+  {
+    path: "/tvShows",
+    Component: TvShowComponent,
   },
 ];

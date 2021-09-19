@@ -9,7 +9,7 @@ import { useHistory } from "react-router";
 import { movieMenu } from "../../store/constants";
 import shortLogo from "../../assets/logo/blue_short_logo.png";
 import { appBarStyle } from "../../styles/appStyles";
-import { peopleRoute } from "../../store/constants";
+import { peopleRoute, tvShowRoute } from "../../store/constants";
 
 export default function Header() {
   let history = useHistory();
@@ -66,7 +66,11 @@ export default function Header() {
               );
             })}
           </Menu>
-          <Button className={classes.btnColor} component="div">
+          <Button
+            className={classes.btnColor}
+            onClick={() => handleChangeTab(tvShowRoute)}
+            component="div"
+          >
             TV Shows
           </Button>
           <Button
