@@ -1,6 +1,6 @@
 import React, { Fragment, useEffect } from "react";
 import { Box } from "@mui/system";
-import { Grid } from "@mui/material";
+import { Container, Grid } from "@mui/material";
 import Loader from "../../shared/loader";
 import Card from "../../shared/card";
 import SearchBar from "../SearchBar/index";
@@ -12,8 +12,7 @@ export default function Person({ peopleData, peopleReq, peopleLoader, error }) {
   return (
     <Fragment>
       <SearchBar />
-
-      <Box sx={{ height: "auto" }}>
+      <Container>
         {peopleLoader === true && <Loader />}
         {error && <h1>{error}</h1>}
 
@@ -26,6 +25,7 @@ export default function Person({ peopleData, peopleReq, peopleLoader, error }) {
                 xs={6}
                 lg={3}
                 xl={2}
+                sx={{ paddingLeft: "2rem" }}
               >
                 <Card
                   key={JSON.stringify(person) + index}
@@ -37,7 +37,7 @@ export default function Person({ peopleData, peopleReq, peopleLoader, error }) {
             ))}
           </Grid>
         )}
-      </Box>
+      </Container>
     </Fragment>
   );
 }

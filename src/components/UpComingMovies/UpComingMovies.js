@@ -3,7 +3,7 @@ import { Box } from "@mui/system";
 import Card from "../../shared/card";
 import SearchBar from "../SearchBar/index";
 import Loader from "../../shared/loader";
-import { Grid } from "@mui/material";
+import { Container, Grid } from "@mui/material";
 
 export default function MovieComponent({
   upComingMoviesData,
@@ -18,7 +18,7 @@ export default function MovieComponent({
     <Fragment>
       <SearchBar />
 
-      <Box sx={{ height: "auto" }}>
+      <Container>
         {upComingMoviesLoader === true && <Loader />}
         {error && <h1>{error}</h1>}
 
@@ -31,6 +31,7 @@ export default function MovieComponent({
                 xs={6}
                 lg={3}
                 xl={2}
+                sx={{ paddingLeft: "2rem" }}
               >
                 <Card
                   key={JSON.stringify(movie) + index}
@@ -42,7 +43,7 @@ export default function MovieComponent({
             ))}
           </Grid>
         )}
-      </Box>
+      </Container>
     </Fragment>
   );
 }

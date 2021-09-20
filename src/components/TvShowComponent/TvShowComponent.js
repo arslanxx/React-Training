@@ -1,6 +1,6 @@
 import React, { Fragment, useEffect } from "react";
 import { Box } from "@mui/system";
-import { Grid } from "@mui/material";
+import { Container, Grid } from "@mui/material";
 import Loader from "../../shared/loader";
 import Card from "../../shared/card";
 import SearchBar from "../SearchBar/index";
@@ -17,8 +17,7 @@ export default function TvShowComponent({
   return (
     <Fragment>
       <SearchBar />
-
-      <Box sx={{ height: "auto" }}>
+      <Container>
         {tvShowLoader === true && <Loader />}
         {error && <h1>{error}</h1>}
         {tvShowData && (
@@ -32,6 +31,7 @@ export default function TvShowComponent({
                 md={3}
                 lg={2}
                 xl={4}
+                sx={{ paddingLeft: "2rem" }}
               >
                 <Card
                   key={JSON.stringify(show) + index}
@@ -43,7 +43,7 @@ export default function TvShowComponent({
             ))}
           </Grid>
         )}
-      </Box>
+      </Container>
     </Fragment>
   );
 }
