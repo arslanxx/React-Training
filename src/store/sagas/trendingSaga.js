@@ -1,6 +1,6 @@
 import { put, all, takeEvery, call } from "redux-saga/effects";
 import { FETCH_TRENDING_REQUEST } from "../constants";
-import { trendingShowsList } from "../services/service";
+import { getTrendingShowsList } from "../services/service";
 import {
   fetchTrendingSuccess,
   fetchTrendingFailure,
@@ -8,7 +8,7 @@ import {
 
 function* trendingSaga() {
   try {
-    const trendingList = yield call(trendingShowsList);
+    const trendingList = yield call(getTrendingShowsList);
     yield put(fetchTrendingSuccess(trendingList.data.results));
   } catch (e) {
     yield put(fetchTrendingFailure(e.response.data.status_message));

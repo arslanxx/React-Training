@@ -3,6 +3,7 @@ import movieSaga from "./movieSaga";
 import peopleSaga from "./peopleSaga";
 import tvShowSaga from "./tvShowSaga";
 import trendingSaga from "./trendingSaga";
+import upComingMoviesSaga from "./upComingMoviesSaga";
 
 function* allSagas() {
   yield all([
@@ -10,6 +11,7 @@ function* allSagas() {
     spawn(peopleSaga),
     spawn(tvShowSaga),
     spawn(trendingSaga),
+    spawn(upComingMoviesSaga),
   ]);
 }
 

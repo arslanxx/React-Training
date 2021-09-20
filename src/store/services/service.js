@@ -19,8 +19,14 @@ export const GetTvShowsList = () => {
   );
 };
 
-export const trendingShowsList = () => {
+export const getTrendingShowsList = () => {
   return axios.request(
     `${API_ENDPOINT}trending/movie/week?api_key=${API_KEY}&language=en-US&page=1`
+  );
+};
+
+export const getUpComingMovies = () => {
+  return axios.request(
+    `${API_ENDPOINT}movie/upcoming?api_key=${API_KEY}&language=en-US&page=1`
   );
 };
