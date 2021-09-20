@@ -2,7 +2,7 @@ import MovieComponent from "../components/MovieComponent";
 import Person from "../components/PersonComponent";
 import TvShowComponent from "../components/TvShowComponent";
 import UpComingMovies from "../components/UpComingMovies/UpComingMovies";
-import TrendingMovies from "../components/TrendingMovies/TrendingMovies";
+import TrendingMovies from "../components/TrendingMovies";
 
 export const routes = [
   {

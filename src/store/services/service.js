@@ -18,3 +18,9 @@ export const GetTvShowsList = () => {
     `${API_ENDPOINT}tv/popular?api_key=${API_KEY}&language=en-US&page=1`
   );
 };
+
+export const trendingShowsList = () => {
+  return axios.request(
+    `${API_ENDPOINT}trending/movie/week?api_key=${API_KEY}&language=en-US&page=1`
+  );
+};

@@ -10,10 +10,10 @@ export const fetchMoviesRequest = () => {
   };
 };
 
-export const fetchMoviesSuccess = (users) => {
+export const fetchMoviesSuccess = (movies) => {
   return {
     type: FETCH_MOVIE_SUCCESS,
-    payload: users,
+    payload: movies,
   };
 };
 
