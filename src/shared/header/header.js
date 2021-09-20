@@ -1,4 +1,4 @@
-import * as React from "react";
+import React from "react";
 import AppBar from "@material-ui/core/AppBar";
 import Box from "@material-ui/core/Box";
 import Toolbar from "@material-ui/core/Toolbar";
@@ -16,15 +16,21 @@ export default function Header() {
   const classes = appBarStyle();
   const [anchorEl, setAnchorEl] = React.useState(null);
   const open = Boolean(anchorEl);
+
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
   };
-  const handleClose = () => {
+
+  const handleClose = (event, route) => {
+    let selected = event.target.textContent;
     setAnchorEl(null);
+    selected && handleChangeTab(route);
   };
+
   const handleChangeTab = (route) => {
     history.push(route);
   };
+
   return (
     <Box sx={{ flexGrow: 1 }}>
       <AppBar className={classes.header} position="static">
@@ -59,9 +65,9 @@ export default function Header() {
               return (
                 <MenuItem
                   key={JSON.stringify(menu) + index}
-                  onClick={handleClose}
+                  onClick={(event) => handleClose(event, menu.route)}
                 >
-                  {menu}
+                  {menu.name}
                 </MenuItem>
               );
             })}

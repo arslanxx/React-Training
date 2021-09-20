@@ -1,6 +1,8 @@
 import MovieComponent from "../components/MovieComponent";
 import Person from "../components/PersonComponent";
 import TvShowComponent from "../components/TvShowComponent";
+import UpComingMovies from "../components/UpComingMovies/UpComingMovies";
+import TrendingMovies from "../components/TrendingMovies/TrendingMovies";
 
 export const routes = [
   {
@@ -14,5 +16,13 @@ export const routes = [
   {
     path: "/tvShows",
     Component: TvShowComponent,
+  },
+  {
+    path: "/upcoming",
+    Component: UpComingMovies,
+  },
+  {
+    path: "/trending",
+    Component: TrendingMovies,
   },
 ];

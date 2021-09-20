@@ -2,7 +2,6 @@ import React, { Fragment, useEffect } from "react";
 import { Box } from "@mui/system";
 import Card from "../../shared/card";
 import SearchBar from "../SearchBar/index";
-import { FETCH_MOVIE_REQUEST } from "../../store/constants";
 import Loader from "../../shared/loader";
 import { Grid } from "@mui/material";
 
@@ -13,7 +12,7 @@ export default function MovieComponent({
   error,
 }) {
   useEffect(() => {
-    movieReq(FETCH_MOVIE_REQUEST);
+    movieReq();
   }, []);
   return (
     <Fragment>

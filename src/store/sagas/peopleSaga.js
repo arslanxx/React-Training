@@ -1,20 +1,17 @@
 import { put, all, takeEvery, call } from "redux-saga/effects";
-import {
-  FETCH_PEOPLE_FAILURE,
-  FETCH_PEOPLE_SUCCESS,
-  FETCH_PEOPLE_REQUEST,
-} from "../constants";
+import { FETCH_PEOPLE_REQUEST } from "../constants";
 import { getPeopleList } from "../services/service";
+import {
+  fetchPeopleSuccess,
+  fetchPeopleFailure,
+} from "../actions/peopleActions";
 
 function* peopleSaga() {
   try {
     const peopleList = yield call(getPeopleList);
-    yield put({ type: FETCH_PEOPLE_SUCCESS, payload: peopleList.data.results });
+    yield put(fetchPeopleSuccess(peopleList.data.results));
   } catch (e) {
-    yield put({
-      type: FETCH_PEOPLE_FAILURE,
-      payload: e.response.data.status_message,
-    });
+    yield put(fetchPeopleFailure(e.response.data.status_message));
   }
 }
 

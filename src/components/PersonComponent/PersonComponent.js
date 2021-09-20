@@ -1,14 +1,13 @@
 import React, { Fragment, useEffect } from "react";
 import { Box } from "@mui/system";
 import { Grid } from "@mui/material";
-import { FETCH_PEOPLE_REQUEST } from "../../store/constants";
 import Loader from "../../shared/loader";
 import Card from "../../shared/card";
 import SearchBar from "../SearchBar/index";
 
 export default function Person({ peopleData, peopleReq, peopleLoader, error }) {
   useEffect(() => {
-    peopleReq(FETCH_PEOPLE_REQUEST);
+    peopleReq();
   }, []);
   return (
     <Fragment>
