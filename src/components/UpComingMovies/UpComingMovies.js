@@ -1,5 +1,4 @@
 import React, { Fragment, useEffect } from "react";
-import { Box } from "@mui/system";
 import Card from "../../shared/card";
 import SearchBar from "../SearchBar/index";
 import Loader from "../../shared/loader";
@@ -10,6 +9,7 @@ export default function MovieComponent({
   upComingMoviesReq,
   upComingMoviesLoader,
   error,
+  history,
 }) {
   useEffect(() => {
     upComingMoviesReq();
@@ -38,6 +38,9 @@ export default function MovieComponent({
                   title={movie.title}
                   overView={movie.overview}
                   image={movie.poster_path}
+                  id={movie.id}
+                  history={history}
+                  component={"movie"}
                 />
               </Grid>
             ))}

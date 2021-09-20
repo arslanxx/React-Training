@@ -5,7 +5,13 @@ import Loader from "../../shared/loader";
 import Card from "../../shared/card";
 import SearchBar from "../SearchBar/index";
 
-export default function Person({ peopleData, peopleReq, peopleLoader, error }) {
+export default function Person({
+  peopleData,
+  peopleReq,
+  peopleLoader,
+  error,
+  history,
+}) {
   useEffect(() => {
     peopleReq();
   }, []);
@@ -25,13 +31,16 @@ export default function Person({ peopleData, peopleReq, peopleLoader, error }) {
                 xs={6}
                 lg={3}
                 xl={2}
-                sx={{ paddingLeft: "2rem" }}
+                sx={{ paddingRight: "1rem", paddingLeft: "1rem" }}
               >
                 <Card
                   key={JSON.stringify(person) + index}
                   title={person.name}
                   overView={person.known_for_department}
                   image={person.profile_path}
+                  id={person.id}
+                  history={history}
+                  component={"person"}
                 />
               </Grid>
             ))}

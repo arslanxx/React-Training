@@ -10,6 +10,7 @@ export default function Person({
   trendingReq,
   trendingLoader,
   error,
+  history,
 }) {
   useEffect(() => {
     trendingReq();
@@ -39,6 +40,9 @@ export default function Person({
                   title={trending.title}
                   overView={trending.overview}
                   image={trending.poster_path}
+                  id={trending.id}
+                  history={history}
+                  component={"movie"}
                 />
               </Grid>
             ))}

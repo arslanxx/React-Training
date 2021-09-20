@@ -1,5 +1,4 @@
 import React, { Fragment, useEffect } from "react";
-import { Box } from "@mui/system";
 import { Container, Grid } from "@mui/material";
 import Loader from "../../shared/loader";
 import Card from "../../shared/card";
@@ -10,6 +9,7 @@ export default function TvShowComponent({
   tvShowReq,
   tvShowLoader,
   error,
+  history,
 }) {
   useEffect(() => {
     tvShowReq();
@@ -38,6 +38,9 @@ export default function TvShowComponent({
                   title={show.name}
                   overView={show.overview}
                   image={show.poster_path}
+                  id={show.id}
+                  history={history}
+                  component={"tv"}
                 />
               </Grid>
             ))}

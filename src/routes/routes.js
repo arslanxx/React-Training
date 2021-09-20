@@ -3,6 +3,7 @@ import Person from "../components/PersonComponent";
 import TvShowComponent from "../components/TvShowComponent";
 import UpComingMovies from "../components/UpComingMovies";
 import TrendingMovies from "../components/TrendingMovies";
+import DetailComponent from "../components/DetailComponent";
 
 export const routes = [
   {
@@ -24,5 +25,9 @@ export const routes = [
   {
     path: "/trending",
     Component: TrendingMovies,
+  },
+  {
+    path: "/details/:id/:component",
+    Component: DetailComponent,
   },
 ];

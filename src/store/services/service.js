@@ -30,3 +30,9 @@ export const getUpComingMovies = () => {
     `${API_ENDPOINT}movie/upcoming?api_key=${API_KEY}&language=en-US&page=1`
   );
 };
+
+export const getDetailViewData = (id, component) => {
+  return axios.request(
+    `${API_ENDPOINT}${component}/${id}?api_key=${API_KEY}&language=en-US`
+  );
+};

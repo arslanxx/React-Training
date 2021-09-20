@@ -10,6 +10,7 @@ export default function MovieComponent({
   movieReq,
   movieLoader,
   error,
+  history,
 }) {
   useEffect(() => {
     movieReq();
@@ -37,6 +38,9 @@ export default function MovieComponent({
                   title={movie.title}
                   overView={movie.overview}
                   image={movie.poster_path}
+                  id={movie.id}
+                  history={history}
+                  component={"movie"}
                 />
               </Grid>
             ))}
