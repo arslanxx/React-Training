@@ -30,7 +30,8 @@ export default function Person({
               <Grid
                 key={JSON.stringify(trending) + index}
                 item
-                xs={6}
+                xs={12}
+                sm={6}
                 lg={3}
                 xl={2}
                 sx={{ paddingLeft: "2rem" }}

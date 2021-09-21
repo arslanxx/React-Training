@@ -28,7 +28,8 @@ export default function Person({
               <Grid
                 key={JSON.stringify(person) + index}
                 item
-                xs={6}
+                xs={12}
+                sm={6}
                 lg={3}
                 xl={2}
                 sx={{ paddingRight: "1rem", paddingLeft: "1rem" }}

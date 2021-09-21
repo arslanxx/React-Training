@@ -28,9 +28,8 @@ export default function TvShowComponent({
                 item
                 xs={12}
                 sm={6}
-                md={3}
-                lg={2}
-                xl={4}
+                lg={3}
+                xl={2}
                 sx={{ paddingLeft: "2rem" }}
               >
                 <Card
