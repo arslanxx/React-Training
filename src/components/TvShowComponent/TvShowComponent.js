@@ -28,9 +28,10 @@ export default function TvShowComponent({
                 item
                 xs={12}
                 sm={6}
+                md={4}
                 lg={3}
-                xl={2}
-                sx={{ paddingLeft: "2rem" }}
+                xl={3}
+                sx={{ paddingRight: "1rem", paddingLeft: "1rem" }}
               >
                 <Card
                   key={JSON.stringify(show) + index}

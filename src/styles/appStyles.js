@@ -24,3 +24,18 @@ export const footerStyle = makeStyles((theme) => ({
     fontWeight: "bold",
   },
 }));
+
+export const detailStyle = makeStyles(() => ({
+  textStyle: {
+    borderBottom: "1px solid #000",
+    paddingTop: "1rem",
+    paddingBottom: "1rem",
+    "&:last-child": {
+      borderBottom: "none",
+    },
+  },
+  headingText: {
+    marginTop: "3% !important",
+  },
+  imgStyle: { width: "60%", padding: "1rem 0 1rem 0rem" },
+}));
