@@ -40,8 +40,11 @@ export default function DetailComponent({
           <Typography gutterBottom variant="h3" component="div">
             {detailData.title ?? detailData.original_name ?? detailData.name}
           </Typography>
-          <Grid container style={{ marginTop: "3rem" }}>
-            <Grid item xl={6} lg={6} md={6} sm={6} xs={6}>
+          <Grid
+            container
+            style={{ marginTop: "3rem", padding: "0 2rem 0 2rem" }}
+          >
+            <Grid item xl={6} lg={6} md={6} sm={6} xs={12}>
               {routesData.component === "person" && (
                 <img
                   className={classes.imgStyle}
@@ -62,15 +65,7 @@ export default function DetailComponent({
               )}
             </Grid>
             {routesData.component !== "person" ? (
-              <Grid
-                item
-                xl={6}
-                lg={6}
-                md={6}
-                sm={6}
-                xs={6}
-                style={{ paddingRight: "2rem" }}
-              >
+              <Grid item xl={6} lg={6} md={6} sm={6} xs={12}>
                 <Typography
                   gutterBottom
                   variant="h5"
@@ -167,15 +162,7 @@ export default function DetailComponent({
                 </Typography>
               </Grid>
             ) : (
-              <Grid
-                item
-                style={{ paddingRight: "2rem" }}
-                xl={6}
-                lg={6}
-                md={6}
-                sm={6}
-                xs={6}
-              >
+              <Grid item xl={6} lg={6} md={6} sm={6} xs={6}>
                 <Typography
                   className={classes.headingText}
                   gutterBottom
