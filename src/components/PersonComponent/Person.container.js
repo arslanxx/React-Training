@@ -4,7 +4,10 @@ import {
   getPeopleError,
   showPeopleLoader,
 } from "../../store/selectors/peopleSelector";
-import { fetchPeopleRequest } from "../../store/actions/peopleActions";
+import {
+  fetchPeopleRequest,
+  searchPeopleRequest,
+} from "../../store/actions/peopleActions";
 import Person from "./PersonComponent";
 
 const mapStateToProps = (state) => {
@@ -18,6 +21,7 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
   return {
     peopleReq: () => dispatch(fetchPeopleRequest()),
+    searchReq: (paramData) => dispatch(searchPeopleRequest(paramData)),
   };
 };
 

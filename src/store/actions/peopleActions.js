@@ -2,6 +2,7 @@ import {
   FETCH_PEOPLE_REQUEST,
   FETCH_PEOPLE_SUCCESS,
   FETCH_PEOPLE_FAILURE,
+  SEARCH_PEOPLE_REQUEST,
 } from "../constants";
 
 export const fetchPeopleRequest = () => {
@@ -21,5 +22,12 @@ export const fetchPeopleFailure = (error) => {
   return {
     type: FETCH_PEOPLE_FAILURE,
     payload: error,
+  };
+};
+
+export const searchPeopleRequest = (queryData) => {
+  return {
+    type: SEARCH_PEOPLE_REQUEST,
+    payload: queryData,
   };
 };

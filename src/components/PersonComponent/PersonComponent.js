@@ -11,13 +11,18 @@ export default function Person({
   peopleLoader,
   error,
   history,
+  searchReq,
 }) {
   useEffect(() => {
     peopleReq();
   }, []);
   return (
     <Fragment>
-      <SearchBar />
+      <SearchBar
+        handleSearchReq={searchReq}
+        handleGetReq={peopleReq}
+        component={"person"}
+      />
       <Container>
         {peopleLoader === true && <Loader />}
         {error && <h1>{error}</h1>}
