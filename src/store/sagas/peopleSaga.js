@@ -6,12 +6,12 @@ import {
   fetchPeopleFailure,
 } from "../actions/peopleActions";
 
-function* peopleSaga({ payload }) {
+function* peopleSaga({ payload, page }) {
   try {
     const peopleList = !payload
-      ? yield call(getPeopleList)
+      ? yield call(getPeopleList, page)
       : yield call(getSearchList, payload.query, payload.component);
-    yield put(fetchPeopleSuccess(peopleList.data.results));
+    yield put(fetchPeopleSuccess(peopleList.data));
   } catch (e) {
     yield put(fetchPeopleFailure(e.response.data.status_message));
   }

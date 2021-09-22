@@ -20,7 +20,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    movieReq: () => dispatch(fetchMoviesRequest()),
+    movieReq: (page) => dispatch(fetchMoviesRequest(page)),
     searchReq: (paramData) => dispatch(fetchSearchMoviesRequest(paramData)),
   };
 };

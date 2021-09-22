@@ -20,7 +20,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    peopleReq: () => dispatch(fetchPeopleRequest()),
+    peopleReq: (page) => dispatch(fetchPeopleRequest(page)),
     searchReq: (paramData) => dispatch(searchPeopleRequest(paramData)),
   };
 };

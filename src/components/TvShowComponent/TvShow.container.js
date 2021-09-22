@@ -20,7 +20,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    tvShowReq: () => dispatch(fetchTvShowRequest()),
+    tvShowReq: (page) => dispatch(fetchTvShowRequest(page)),
     searchReq: (paramData) => dispatch(searchTVRequest(paramData)),
   };
 };

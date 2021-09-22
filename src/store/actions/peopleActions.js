@@ -5,9 +5,10 @@ import {
   SEARCH_PEOPLE_REQUEST,
 } from "../constants";
 
-export const fetchPeopleRequest = () => {
+export const fetchPeopleRequest = (page) => {
   return {
     type: FETCH_PEOPLE_REQUEST,
+    page: page,
   };
 };
 

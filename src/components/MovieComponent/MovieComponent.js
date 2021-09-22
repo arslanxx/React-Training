@@ -1,9 +1,9 @@
-import React, { Fragment, useEffect } from "react";
-import { Box } from "@mui/system";
+import React, { Fragment, useEffect, useState } from "react";
+import { Container, Grid } from "@mui/material";
 import Card from "../../shared/card";
 import SearchBar from "../SearchBar/index";
 import Loader from "../../shared/loader";
-import { Container, Grid } from "@mui/material";
+import Pagination from "../../shared/pagination";
 
 export default function MovieComponent({
   movieData,
@@ -13,9 +13,13 @@ export default function MovieComponent({
   history,
   searchReq,
 }) {
+  const [page, setPage] = useState(1);
   useEffect(() => {
-    movieReq();
-  }, []);
+    movieReq(page);
+  }, [page]);
+  const handlePageChange = (event, newPage) => {
+    setPage(newPage);
+  };
   return (
     <Fragment>
       <SearchBar
@@ -29,7 +33,7 @@ export default function MovieComponent({
 
         {movieData && (
           <Grid container>
-            {movieData.map((movie, index) => (
+            {movieData?.results?.map((movie, index) => (
               <Grid
                 key={JSON.stringify(movie) + index}
                 item
@@ -53,6 +57,12 @@ export default function MovieComponent({
             ))}
           </Grid>
         )}
+        <Container>
+          <Pagination
+            count={movieData.total_pages}
+            handlePageChange={handlePageChange}
+          />
+        </Container>
       </Container>
     </Fragment>
   );

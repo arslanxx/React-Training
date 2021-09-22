@@ -5,9 +5,10 @@ import {
   SEARCH_TV_REQUEST,
 } from "../constants";
 
-export const fetchTvShowRequest = () => {
+export const fetchTvShowRequest = (page) => {
   return {
     type: FETCH_TVSHOW_REQUEST,
+    page: page,
   };
 };
 

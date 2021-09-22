@@ -6,12 +6,12 @@ import {
   fetchMoviesFailure,
 } from "../actions/movieActions";
 
-function* movieSaga({ payload }) {
+function* movieSaga({ payload, page }) {
   try {
     const movieList = !payload
-      ? yield call(getMoviesList)
+      ? yield call(getMoviesList, page)
       : yield call(getSearchList, payload.query, payload.component);
-    yield put(fetchMoviesSuccess(movieList.data.results));
+    yield put(fetchMoviesSuccess(movieList.data));
   } catch (e) {
     yield put(fetchMoviesFailure(e.response.data.status_message));
   }

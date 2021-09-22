@@ -1,8 +1,9 @@
-import React, { Fragment, useEffect } from "react";
+import React, { Fragment, useEffect, useState } from "react";
 import { Container, Grid } from "@mui/material";
 import Loader from "../../shared/loader";
 import Card from "../../shared/card";
 import SearchBar from "../SearchBar/index";
+import Pagination from "../../shared/pagination";
 
 export default function TvShowComponent({
   tvShowData,
@@ -12,9 +13,13 @@ export default function TvShowComponent({
   error,
   history,
 }) {
+  const [page, setPage] = useState(1);
   useEffect(() => {
-    tvShowReq();
-  }, []);
+    tvShowReq(page);
+  }, [page]);
+  const handlePageChange = (event, newPage) => {
+    setPage(newPage);
+  };
   return (
     <Fragment>
       <SearchBar
@@ -27,7 +32,7 @@ export default function TvShowComponent({
         {error && <h1>{error}</h1>}
         {tvShowData && (
           <Grid container>
-            {tvShowData.map((show, index) => (
+            {tvShowData?.results?.map((show, index) => (
               <Grid
                 key={JSON.stringify(show) + index}
                 item
@@ -51,6 +56,12 @@ export default function TvShowComponent({
             ))}
           </Grid>
         )}
+        <Container>
+          <Pagination
+            count={tvShowData.total_pages}
+            handlePageChange={handlePageChange}
+          />
+        </Container>
       </Container>
     </Fragment>
   );

@@ -1,9 +1,10 @@
-import React, { Fragment, useEffect } from "react";
+import React, { Fragment, useEffect, useState } from "react";
 import { Box } from "@mui/system";
 import { Container, Grid } from "@mui/material";
 import Loader from "../../shared/loader";
 import Card from "../../shared/card";
 import SearchBar from "../SearchBar/index";
+import Pagination from "../../shared/pagination";
 
 export default function Person({
   peopleData,
@@ -13,9 +14,13 @@ export default function Person({
   history,
   searchReq,
 }) {
+  const [page, setPage] = useState(1);
   useEffect(() => {
-    peopleReq();
-  }, []);
+    peopleReq(page);
+  }, [page]);
+  const handlePageChange = (event, newPage) => {
+    setPage(newPage);
+  };
   return (
     <Fragment>
       <SearchBar
@@ -29,7 +34,7 @@ export default function Person({
 
         {peopleData && (
           <Grid container>
-            {peopleData.map((person, index) => (
+            {peopleData?.results?.map((person, index) => (
               <Grid
                 key={JSON.stringify(person) + index}
                 item
@@ -53,6 +58,12 @@ export default function Person({
             ))}
           </Grid>
         )}
+        <Container>
+          <Pagination
+            count={peopleData.total_pages}
+            handlePageChange={handlePageChange}
+          />
+        </Container>
       </Container>
     </Fragment>
   );
