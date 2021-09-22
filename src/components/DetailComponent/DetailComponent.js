@@ -16,8 +16,8 @@ export default function DetailComponent({
   const classes = detailStyle();
   const routesData = match.params;
   useEffect(() => {
-    detailReq(routesData);
     window.scrollTo(0, 0);
+    detailReq(routesData);
   }, []);
 
   const convertToString = (data) => {

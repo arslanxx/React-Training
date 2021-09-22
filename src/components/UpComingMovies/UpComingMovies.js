@@ -16,8 +16,8 @@ export default function MovieComponent({
 }) {
   const [page, setPage] = useState(1);
   useEffect(() => {
-    upComingMoviesReq(page);
     window.scrollTo(0, 0);
+    upComingMoviesReq(page);
   }, [page]);
   const handlePageChange = (event, newPage) => {
     setPage(newPage);

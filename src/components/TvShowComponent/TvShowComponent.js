@@ -16,8 +16,8 @@ export default function TvShowComponent({
 }) {
   const [page, setPage] = useState(1);
   useEffect(() => {
-    tvShowReq(page);
     window.scrollTo(0, 0);
+    tvShowReq(page);
   }, [page]);
   const handlePageChange = (event, newPage) => {
     setPage(newPage);
