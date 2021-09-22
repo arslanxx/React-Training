@@ -1,14 +1,16 @@
 import { put, all, takeEvery, call } from "redux-saga/effects";
-import { FETCH_TVSHOW_REQUEST } from "../constants";
-import { GetTvShowsList } from "../services/service";
+import { FETCH_TVSHOW_REQUEST, SEARCH_TV_REQUEST } from "../constants";
+import { GetTvShowsList, getSearchList } from "../services/service";
 import {
   fetchTvShowFailure,
   fetchTvShowSuccess,
 } from "../actions/tvShowActions";
 
-function* tvShowSaga() {
+function* tvShowSaga({ payload }) {
   try {
-    const tvShowList = yield call(GetTvShowsList);
+    const tvShowList = !payload
+      ? yield call(GetTvShowsList)
+      : yield call(getSearchList, payload.query, payload.component);
     yield put(fetchTvShowSuccess(tvShowList.data.results));
   } catch (e) {
     yield put(fetchTvShowFailure(e.response.data.status_message));
@@ -16,5 +18,8 @@ function* tvShowSaga() {
 }
 
 export default function* rootSaga() {
-  yield all([takeEvery(FETCH_TVSHOW_REQUEST, tvShowSaga)]);
+  yield all([
+    takeEvery(FETCH_TVSHOW_REQUEST, tvShowSaga),
+    takeEvery(SEARCH_TV_REQUEST, tvShowSaga),
+  ]);
 }

@@ -4,7 +4,10 @@ import {
   getTvShowError,
   showTvShowLoader,
 } from "../../store/selectors/tvShowSelector";
-import { fetchTvShowRequest } from "../../store/actions/tvShowActions";
+import {
+  fetchTvShowRequest,
+  searchTVRequest,
+} from "../../store/actions/tvShowActions";
 import TvShowComponent from "./TvShowComponent";
 
 const mapStateToProps = (state) => {
@@ -18,6 +21,7 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
   return {
     tvShowReq: () => dispatch(fetchTvShowRequest()),
+    searchReq: (paramData) => dispatch(searchTVRequest(paramData)),
   };
 };
 

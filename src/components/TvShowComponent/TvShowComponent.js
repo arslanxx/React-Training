@@ -8,6 +8,7 @@ export default function TvShowComponent({
   tvShowData,
   tvShowReq,
   tvShowLoader,
+  searchReq,
   error,
   history,
 }) {
@@ -16,7 +17,11 @@ export default function TvShowComponent({
   }, []);
   return (
     <Fragment>
-      <SearchBar />
+      <SearchBar
+        handleSearchReq={searchReq}
+        handleGetReq={tvShowReq}
+        component={"tv"}
+      />
       <Container>
         {tvShowLoader === true && <Loader />}
         {error && <h1>{error}</h1>}
