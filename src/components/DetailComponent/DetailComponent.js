@@ -10,6 +10,7 @@ export default function DetailComponent({
   detailData,
   detailReq,
   detailLoader,
+  reviews,
   error,
   match,
 }) {
@@ -18,6 +19,7 @@ export default function DetailComponent({
   useEffect(() => {
     window.scrollTo(0, 0);
     detailReq(routesData);
+    console.log(reviews);
   }, []);
 
   const convertToString = (data) => {
@@ -243,6 +245,7 @@ export default function DetailComponent({
               </Grid>
             )}
           </Grid>
+          {reviews && <h1>{reviews[0]?.author}</h1>}
         </Fragment>
       )}
     </Fragment>

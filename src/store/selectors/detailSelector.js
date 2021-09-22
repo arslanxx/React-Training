@@ -14,6 +14,10 @@ export const showDetailLoader = createSelector(getDetailViewState, (state) => {
   return state.getIn(["detailView", "loading"]) || List();
 });
 
+export const showReviews = createSelector(getDetailViewState, (state) => {
+  return state.getIn(["detailView", "reviews"]) || List();
+});
+
 export const getDetailError = createSelector(getDetailViewState, (state) => {
   return state.getIn(["detailView", "error"]) || List();
 });

@@ -4,6 +4,7 @@ import {
   getDetailData,
   getDetailError,
   showDetailLoader,
+  showReviews,
 } from "../../store/selectors/detailSelector";
 import { fetchDetailRequest } from "../../store/actions/detailsActions";
 
@@ -12,6 +13,7 @@ const mapStateToProps = (state) => {
     detailData: getDetailData(state),
     detailLoader: showDetailLoader(state),
     error: getDetailError(state),
+    reviews: showReviews(state),
   };
 };
 

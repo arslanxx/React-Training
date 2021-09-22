@@ -8,10 +8,10 @@ export default function Footer() {
 
   return (
     <Grid className={footerClass.footerLayout} container>
-      <Grid item xs={3}>
-        <img src={squareLogo} style={{ width: "40%" }} alt="Moviedb" />
+      <Grid item xs={12} sm={6} md={2} lg={2} xl={2}>
+        <img src={squareLogo} style={{ width: "60%" }} alt="Moviedb" />
       </Grid>
-      <Grid item xs={2}>
+      <Grid item xs={8} sm={12} md={6} lg={4} xl={4}>
         <Typography
           className={footerClass.fontBold}
           variant="h5"
@@ -35,7 +35,7 @@ export default function Footer() {
           System Status
         </Typography>
       </Grid>
-      <Grid item xs={2}>
+      <Grid item xs={12} sm={2} md={2} lg={2} xl={2}>
         <Typography
           className={footerClass.fontBold}
           variant="h5"
@@ -56,7 +56,7 @@ export default function Footer() {
           Add New TV Show
         </Typography>
       </Grid>
-      <Grid item xs={2}>
+      <Grid item xs={12} sm={2} md={2} lg={2} xl={2}>
         <Typography
           className={footerClass.fontBold}
           variant="h5"
@@ -77,7 +77,7 @@ export default function Footer() {
           Twitter
         </Typography>
       </Grid>
-      <Grid item xs={2}>
+      <Grid item xs={12} sm={2} md={2} lg={2} xl={2}>
         <Typography
           className={footerClass.fontBold}
           variant="h5"

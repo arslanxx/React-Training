@@ -4,6 +4,7 @@ import { getDetailViewData } from "../services/service";
 import {
   fetchDetailSuccess,
   fetchDetailFailure,
+  fetchReviewSuccess,
 } from "../actions/detailsActions";
 
 function* detailSaga({ payload }) {
@@ -13,7 +14,12 @@ function* detailSaga({ payload }) {
       payload.id,
       payload.component
     );
-    yield put(fetchDetailSuccess(detailView.data));
+    if (payload.component === "person") {
+      yield put(fetchDetailSuccess(detailView.data));
+    } else {
+      yield put(fetchDetailSuccess(detailView[0].data));
+      yield put(fetchReviewSuccess(detailView[1].data.results));
+    }
   } catch (e) {
     yield put(fetchDetailFailure(e.response.data.status_message));
   }

@@ -32,9 +32,11 @@ export const getUpComingMovies = (page = 1) => {
 };
 
 export const getDetailViewData = (id, component) => {
-  return axios.request(
-    `${API_ENDPOINT}${component}/${id}?api_key=${API_KEY}&language=en-US`
-  );
+  let detailURL = `${API_ENDPOINT}${component}/${id}?api_key=${API_KEY}&language=en-US`;
+  let reviewURL = `${API_ENDPOINT}${component}/${id}/reviews?api_key=${API_KEY}&language=en-US&page=1`;
+  return component === "person"
+    ? axios.get(detailURL)
+    : Promise.all([axios.request(detailURL), axios.request(reviewURL)]);
 };
 
 export function getSearchList(queryData, component) {
