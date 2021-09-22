@@ -21,7 +21,7 @@ export default function SearchBar({
   return (
     <React.Fragment>
       <CssBaseline />
-      <Container fixed style={{ paddingTop: "2rem" }}>
+      <Container fixed style={{ paddingTop: "2rem", paddingBottom: "2rem" }}>
         <Box
           sx={{ backgroundImage: `${searchBackgroundImage}`, height: "10vh" }}
         >
