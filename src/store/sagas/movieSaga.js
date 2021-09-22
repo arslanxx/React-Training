@@ -1,14 +1,16 @@
 import { put, all, takeEvery, call } from "redux-saga/effects";
-import { FETCH_MOVIE_REQUEST } from "../constants";
-import { getMoviesList } from "../services/service";
+import { FETCH_MOVIE_REQUEST, SEARCH_MOVIE_REQUEST } from "../constants";
+import { getMoviesList, getSearchList } from "../services/service";
 import {
   fetchMoviesSuccess,
   fetchMoviesFailure,
 } from "../actions/movieActions";
 
-function* movieSaga() {
+function* movieSaga({ payload }) {
   try {
-    const movieList = yield call(getMoviesList);
+    const movieList = !payload
+      ? yield call(getMoviesList)
+      : yield call(getSearchList, payload.query, payload.component);
     yield put(fetchMoviesSuccess(movieList.data.results));
   } catch (e) {
     yield put(fetchMoviesFailure(e.response.data.status_message));
@@ -16,5 +18,8 @@ function* movieSaga() {
 }
 
 export default function* rootSaga() {
-  yield all([takeEvery(FETCH_MOVIE_REQUEST, movieSaga)]);
+  yield all([
+    takeEvery(FETCH_MOVIE_REQUEST, movieSaga),
+    takeEvery(SEARCH_MOVIE_REQUEST, movieSaga),
+  ]);
 }

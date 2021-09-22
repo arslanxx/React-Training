@@ -5,7 +5,10 @@ import {
   getMovieError,
   showMovieLoader,
 } from "../../store/selectors/movieSelector";
-import { fetchMoviesRequest } from "../../store/actions/movieActions";
+import {
+  fetchMoviesRequest,
+  fetchSearchMoviesRequest,
+} from "../../store/actions/movieActions";
 
 const mapStateToProps = (state) => {
   return {
@@ -18,6 +21,7 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
   return {
     movieReq: () => dispatch(fetchMoviesRequest()),
+    searchReq: (paramData) => dispatch(fetchSearchMoviesRequest(paramData)),
   };
 };
 

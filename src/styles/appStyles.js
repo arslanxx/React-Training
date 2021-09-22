@@ -39,3 +39,17 @@ export const detailStyle = makeStyles(() => ({
   },
   imgStyle: { width: "60%", padding: "1rem 0 1rem 0rem" },
 }));
+
+export const searchStlyes = makeStyles(() => ({
+  searchBar: {
+    width: "100%",
+    height: "3rem",
+    borderRadius: "30px",
+    border: "1px solid #000",
+    padding: "10px 20px",
+    outline: "none",
+    "&:hover": {
+      border: "1px solid #005FCC",
+    },
+  },
+}));

@@ -11,13 +11,18 @@ export default function MovieComponent({
   movieLoader,
   error,
   history,
+  searchReq,
 }) {
   useEffect(() => {
     movieReq();
   }, []);
   return (
     <Fragment>
-      <SearchBar />
+      <SearchBar
+        handleSearchReq={searchReq}
+        handleGetReq={movieReq}
+        component={"movie"}
+      />
       <Container>
         {movieLoader === true && <Loader />}
         {error && <h1>{error}</h1>}

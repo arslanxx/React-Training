@@ -1,13 +1,15 @@
 import { fromJS } from "immutable";
 import {
   FETCH_MOVIE_REQUEST,
-  FETCH_MOVIE_SUCCESS,
+  SEARCH_MOVIE_REQUEST,
   FETCH_MOVIE_FAILURE,
+  FETCH_MOVIE_SUCCESS,
 } from "../constants";
 
 const moviesReducer = (state = fromJS({ movies: {} }), action) => {
   switch (action.type) {
     case FETCH_MOVIE_REQUEST:
+    case SEARCH_MOVIE_REQUEST:
       return state.setIn(["movies", "loading"], true);
     case FETCH_MOVIE_SUCCESS:
       return state

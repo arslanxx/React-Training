@@ -36,3 +36,9 @@ export const getDetailViewData = (id, component) => {
     `${API_ENDPOINT}${component}/${id}?api_key=${API_KEY}&language=en-US`
   );
 };
+
+export function getSearchList(queryData, component) {
+  return axios.get(
+    `${API_ENDPOINT}search/movie/?api_key=${API_KEY}&language=en-US&query=${queryData}&page=1&include_adult=false`
+  );
+}

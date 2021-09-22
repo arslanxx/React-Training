@@ -8,6 +8,7 @@ export const movieMenu = [
 export const FETCH_MOVIE_REQUEST = "FETCH_MOVIE_REQUEST";
 export const FETCH_MOVIE_SUCCESS = "FETCH_MOVIE_SUCCESS";
 export const FETCH_MOVIE_FAILURE = "FETCH_MOVIE_FAILURE";
+export const SEARCH_MOVIE_REQUEST = "SEARCH_MOVIE_REQUEST";
 
 export const IMAGE_PATH = "http://image.tmdb.org/t/p/w500";
 export const API_ENDPOINT = "https://api.themoviedb.org/3/";
