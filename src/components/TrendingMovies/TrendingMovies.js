@@ -17,6 +17,7 @@ export default function Person({
   const [page, setPage] = useState(1);
   useEffect(() => {
     trendingReq(page);
+    window.scrollTo(0, 0);
   }, [page]);
   const handlePageChange = (event, newPage) => {
     setPage(newPage);
