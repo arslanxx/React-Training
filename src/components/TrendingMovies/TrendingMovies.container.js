@@ -20,7 +20,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    trendingReq: () => dispatch(fetchTrendingRequest()),
+    trendingReq: (page) => dispatch(fetchTrendingRequest(page)),
     searchReq: (paramData) => dispatch(searchTrendingMovieRequest(paramData)),
   };
 };

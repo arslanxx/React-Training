@@ -9,12 +9,12 @@ import {
   fetchTrendingFailure,
 } from "../actions/trendingActions";
 
-function* trendingSaga({ payload }) {
+function* trendingSaga({ payload, page }) {
   try {
     const trendingList = !payload
-      ? yield call(getTrendingShowsList)
+      ? yield call(getTrendingShowsList, page)
       : yield call(getSearchList, payload.query, payload.component);
-    yield put(fetchTrendingSuccess(trendingList.data.results));
+    yield put(fetchTrendingSuccess(trendingList.data));
   } catch (e) {
     yield put(fetchTrendingFailure(e.response.data.status_message));
   }

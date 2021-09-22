@@ -1,8 +1,9 @@
-import React, { Fragment, useEffect } from "react";
+import React, { Fragment, useEffect, useState } from "react";
 import Card from "../../shared/card";
 import SearchBar from "../SearchBar/index";
 import Loader from "../../shared/loader";
 import { Container, Grid } from "@mui/material";
+import Pagination from "../../shared/pagination";
 
 export default function MovieComponent({
   upComingMoviesData,
@@ -12,9 +13,13 @@ export default function MovieComponent({
   searchReq,
   history,
 }) {
+  const [page, setPage] = useState(1);
   useEffect(() => {
-    upComingMoviesReq();
-  }, []);
+    upComingMoviesReq(page);
+  }, [page]);
+  const handlePageChange = (event, newPage) => {
+    setPage(newPage);
+  };
   return (
     <Fragment>
       <SearchBar
@@ -29,7 +34,7 @@ export default function MovieComponent({
 
         {upComingMoviesData && (
           <Grid container>
-            {upComingMoviesData.map((movie, index) => (
+            {upComingMoviesData?.results?.map((movie, index) => (
               <Grid
                 key={JSON.stringify(movie) + index}
                 item
@@ -53,6 +58,12 @@ export default function MovieComponent({
             ))}
           </Grid>
         )}
+        <Container>
+          <Pagination
+            count={upComingMoviesData.total_pages}
+            handlePageChange={handlePageChange}
+          />
+        </Container>
       </Container>
     </Fragment>
   );

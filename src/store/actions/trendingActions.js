@@ -5,9 +5,10 @@ import {
   SEARCH_TRENDINGMOVIE_REQUEST,
 } from "../constants";
 
-export const fetchTrendingRequest = () => {
+export const fetchTrendingRequest = (page) => {
   return {
     type: FETCH_TRENDING_REQUEST,
+    page: page,
   };
 };
 

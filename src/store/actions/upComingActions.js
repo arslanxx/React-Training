@@ -5,9 +5,10 @@ import {
   SEARCH_UPCOMING_REQUEST,
 } from "../constants";
 
-export const fetchUpComingMoviesRequest = () => {
+export const fetchUpComingMoviesRequest = (page) => {
   return {
     type: FETCH_UPCOMINGMOVIES_REQUEST,
+    page: page,
   };
 };
 

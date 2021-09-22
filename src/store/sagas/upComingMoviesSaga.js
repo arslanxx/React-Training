@@ -9,12 +9,12 @@ import {
   fetchUpComingMoviesFailure,
 } from "../actions/upComingActions";
 
-function* upComingMoviesSaga({ payload }) {
+function* upComingMoviesSaga({ payload, page }) {
   try {
     const upComingList = !payload
-      ? yield call(getUpComingMovies)
+      ? yield call(getUpComingMovies, page)
       : yield call(getSearchList, payload.query, payload.component);
-    yield put(fetchUpComingMoviesSuccess(upComingList.data.results));
+    yield put(fetchUpComingMoviesSuccess(upComingList.data));
   } catch (e) {
     yield put(fetchUpComingMoviesFailure(e.response.data.status_message));
   }

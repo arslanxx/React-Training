@@ -19,15 +19,15 @@ export const GetTvShowsList = (page = 1) => {
   );
 };
 
-export const getTrendingShowsList = () => {
+export const getTrendingShowsList = (page = 1) => {
   return axios.request(
-    `${API_ENDPOINT}trending/movie/week?api_key=${API_KEY}&language=en-US&page=1`
+    `${API_ENDPOINT}trending/movie/week?api_key=${API_KEY}&language=en-US&page=${page}`
   );
 };
 
-export const getUpComingMovies = () => {
+export const getUpComingMovies = (page = 1) => {
   return axios.request(
-    `${API_ENDPOINT}movie/upcoming?api_key=${API_KEY}&language=en-US&page=1`
+    `${API_ENDPOINT}movie/upcoming?api_key=${API_KEY}&language=en-US&page=${page}`
   );
 };
 
