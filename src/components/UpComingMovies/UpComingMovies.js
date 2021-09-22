@@ -9,6 +9,7 @@ export default function MovieComponent({
   upComingMoviesReq,
   upComingMoviesLoader,
   error,
+  searchReq,
   history,
 }) {
   useEffect(() => {
@@ -16,7 +17,11 @@ export default function MovieComponent({
   }, []);
   return (
     <Fragment>
-      <SearchBar />
+      <SearchBar
+        handleSearchReq={searchReq}
+        handleGetReq={upComingMoviesReq}
+        component={"movie"}
+      />
 
       <Container>
         {upComingMoviesLoader === true && <Loader />}

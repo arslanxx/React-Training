@@ -5,7 +5,10 @@ import {
   getUpComingMoviesError,
   showUpComingMoviesLoader,
 } from "../../store/selectors/upComingMoviesSelector";
-import { fetchUpComingMoviesRequest } from "../../store/actions/upComingActions";
+import {
+  fetchUpComingMoviesRequest,
+  searchUpComingMovieRequest,
+} from "../../store/actions/upComingActions";
 
 const mapStateToProps = (state) => {
   return {
@@ -18,6 +21,7 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
   return {
     upComingMoviesReq: () => dispatch(fetchUpComingMoviesRequest()),
+    searchReq: (paramData) => dispatch(searchUpComingMovieRequest(paramData)),
   };
 };
 

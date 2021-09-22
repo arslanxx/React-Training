@@ -2,10 +2,10 @@ import * as React from "react";
 import CssBaseline from "@mui/material/CssBaseline";
 import Box from "@mui/material/Box";
 import Container from "@mui/material/Container";
-import TextField from "@mui/material/TextField";
 import { DebounceInput } from "react-debounce-input";
 import { searchStlyes } from "../../styles/appStyles";
 import searchBackgroundImage from "../../assets/searchBackgroundImage/searchBackgroundImage.jpeg";
+import { Typography } from "@mui/material";
 
 export default function SearchBar({
   handleSearchReq,
@@ -25,6 +25,9 @@ export default function SearchBar({
         <Box
           sx={{ backgroundImage: `${searchBackgroundImage}`, height: "10vh" }}
         >
+          <Typography variant="h5" gutterBottom component="div">
+            Welcome
+          </Typography>
           <DebounceInput
             minLength={2}
             debounceTimeout={300}

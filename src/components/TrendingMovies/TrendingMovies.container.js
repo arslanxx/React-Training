@@ -4,7 +4,10 @@ import {
   getTrendingError,
   showTrendingLoader,
 } from "../../store/selectors/trendingSelector";
-import { fetchTrendingRequest } from "../../store/actions/trendingActions";
+import {
+  fetchTrendingRequest,
+  searchTrendingMovieRequest,
+} from "../../store/actions/trendingActions";
 import TrendingMovies from "./TrendingMovies";
 
 const mapStateToProps = (state) => {
@@ -18,6 +21,7 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
   return {
     trendingReq: () => dispatch(fetchTrendingRequest()),
+    searchReq: (paramData) => dispatch(searchTrendingMovieRequest(paramData)),
   };
 };
 

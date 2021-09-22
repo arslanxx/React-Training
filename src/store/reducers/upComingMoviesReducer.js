@@ -3,6 +3,7 @@ import {
   FETCH_UPCOMINGMOVIES_REQUEST,
   FETCH_UPCOMINGMOVIES_SUCCESS,
   FETCH_UPCOMINGMOVIES_FAILURE,
+  SEARCH_UPCOMING_REQUEST,
 } from "../constants";
 
 const upComingMoviesReducer = (
@@ -11,6 +12,7 @@ const upComingMoviesReducer = (
 ) => {
   switch (action.type) {
     case FETCH_UPCOMINGMOVIES_REQUEST:
+    case SEARCH_UPCOMING_REQUEST:
       return state.setIn(["upComingMovies", "loading"], true);
     case FETCH_UPCOMINGMOVIES_SUCCESS:
       return state

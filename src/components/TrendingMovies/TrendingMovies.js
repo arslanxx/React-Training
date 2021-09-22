@@ -10,6 +10,7 @@ export default function Person({
   trendingReq,
   trendingLoader,
   error,
+  searchReq,
   history,
 }) {
   useEffect(() => {
@@ -17,7 +18,11 @@ export default function Person({
   }, []);
   return (
     <Fragment>
-      <SearchBar />
+      <SearchBar
+        handleSearchReq={searchReq}
+        handleGetReq={trendingReq}
+        component={"movie"}
+      />
 
       {/* <Box sx={{ height: "auto" }}> */}
       <Container>

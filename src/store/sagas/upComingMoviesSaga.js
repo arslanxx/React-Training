@@ -1,14 +1,19 @@
 import { put, all, takeEvery, call } from "redux-saga/effects";
-import { FETCH_UPCOMINGMOVIES_REQUEST } from "../constants";
-import { getUpComingMovies } from "../services/service";
+import {
+  FETCH_UPCOMINGMOVIES_REQUEST,
+  SEARCH_UPCOMING_REQUEST,
+} from "../constants";
+import { getUpComingMovies, getSearchList } from "../services/service";
 import {
   fetchUpComingMoviesSuccess,
   fetchUpComingMoviesFailure,
 } from "../actions/upComingActions";
 
-function* upComingMoviesSaga() {
+function* upComingMoviesSaga({ payload }) {
   try {
-    const upComingList = yield call(getUpComingMovies);
+    const upComingList = !payload
+      ? yield call(getUpComingMovies)
+      : yield call(getSearchList, payload.query, payload.component);
     yield put(fetchUpComingMoviesSuccess(upComingList.data.results));
   } catch (e) {
     yield put(fetchUpComingMoviesFailure(e.response.data.status_message));
@@ -16,5 +21,8 @@ function* upComingMoviesSaga() {
 }
 
 export default function* rootSaga() {
-  yield all([takeEvery(FETCH_UPCOMINGMOVIES_REQUEST, upComingMoviesSaga)]);
+  yield all([
+    takeEvery(FETCH_UPCOMINGMOVIES_REQUEST, upComingMoviesSaga),
+    takeEvery(SEARCH_UPCOMING_REQUEST, upComingMoviesSaga),
+  ]);
 }
