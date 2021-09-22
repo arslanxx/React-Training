@@ -32,7 +32,9 @@ export default function DetailComponent({
   return (
     <Fragment>
       {detailLoader === true ? (
-        <Loader />
+        <Container style={{ height: "100vh" }}>
+          <Loader />
+        </Container>
       ) : (
         <Fragment>
           <Typography gutterBottom variant="h3" component="div">
