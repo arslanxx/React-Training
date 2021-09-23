@@ -14,7 +14,7 @@ export default function SearchBar({
 }) {
   const searchClass = searchStlyes();
   const handleTextChange = (value) => {
-    value == ""
+    value === ""
       ? handleGetReq()
       : handleSearchReq({ query: value, component: component });
   };
