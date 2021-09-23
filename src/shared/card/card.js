@@ -35,7 +35,7 @@ export default function ActionAreaCard({
           alt="green iguana"
         />
         <CardContent>
-          <Typography gutterBottom variant="h5" component="div">
+          <Typography gutterBottom variant="h5">
             {title}
           </Typography>
           {/* <Typography variant="body2" color="text.secondary">

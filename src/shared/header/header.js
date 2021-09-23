@@ -75,14 +75,12 @@ export default function Header() {
           <Button
             className={classes.btnColor}
             onClick={() => handleChangeTab(tvShowRoute)}
-            component="div"
           >
             TV Shows
           </Button>
           <Button
             className={classes.btnColor}
             onClick={() => handleChangeTab(peopleRoute)}
-            component="div"
           >
             People
           </Button>

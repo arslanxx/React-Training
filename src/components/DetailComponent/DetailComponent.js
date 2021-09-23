@@ -38,7 +38,7 @@ export default function DetailComponent({
         </Container>
       ) : (
         <Fragment>
-          <Typography gutterBottom variant="h3" component="div">
+          <Typography gutterBottom variant="h3">
             {detailData.title ?? detailData.original_name ?? detailData.name}
           </Typography>
           <Grid
@@ -71,7 +71,6 @@ export default function DetailComponent({
                   gutterBottom
                   variant="h5"
                   className={classes.headingText}
-                  component="div"
                 >
                   OverView
                 </Typography>
@@ -87,7 +86,6 @@ export default function DetailComponent({
                   gutterBottom
                   className={classes.headingText}
                   variant="h5"
-                  component="div"
                 >
                   Genres
                 </Typography>
@@ -103,7 +101,6 @@ export default function DetailComponent({
                   gutterBottom
                   className={classes.headingText}
                   variant="h5"
-                  component="div"
                 >
                   Language
                 </Typography>
@@ -119,7 +116,6 @@ export default function DetailComponent({
                   gutterBottom
                   className={classes.headingText}
                   variant="h5"
-                  component="div"
                 >
                   Tag Line
                 </Typography>
@@ -135,7 +131,6 @@ export default function DetailComponent({
                   gutterBottom
                   className={classes.headingText}
                   variant="h5"
-                  component="div"
                 >
                   Status
                 </Typography>
@@ -150,7 +145,6 @@ export default function DetailComponent({
                   gutterBottom
                   className={classes.headingText}
                   variant="h5"
-                  component="div"
                 >
                   Release Date
                 </Typography>
@@ -168,7 +162,6 @@ export default function DetailComponent({
                   className={classes.headingText}
                   gutterBottom
                   variant="h5"
-                  component="div"
                 >
                   Biography
                 </Typography>
@@ -183,7 +176,6 @@ export default function DetailComponent({
                   className={classes.headingText}
                   gutterBottom
                   variant="h5"
-                  component="div"
                 >
                   Gender
                 </Typography>
@@ -199,7 +191,6 @@ export default function DetailComponent({
                   className={classes.headingText}
                   gutterBottom
                   variant="h5"
-                  component="div"
                 >
                   Department
                 </Typography>
@@ -215,7 +206,6 @@ export default function DetailComponent({
                   className={classes.headingText}
                   gutterBottom
                   variant="h5"
-                  component="div"
                 >
                   Birthday
                 </Typography>
@@ -230,7 +220,6 @@ export default function DetailComponent({
                   gutterBottom
                   className={classes.headingText}
                   variant="h5"
-                  component="div"
                 >
                   Birth Place
                 </Typography>
@@ -250,7 +239,6 @@ export default function DetailComponent({
                 gutterBottom
                 className={classes.headingText}
                 variant="h5"
-                component="div"
                 sx={{ fontWeight: "bold" }}
               >
                 Reviews

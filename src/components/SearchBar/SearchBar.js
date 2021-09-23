@@ -25,7 +25,7 @@ export default function SearchBar({
         <Box
           sx={{ backgroundImage: `${searchBackgroundImage}`, height: "10vh" }}
         >
-          <Typography variant="h5" gutterBottom component="div">
+          <Typography variant="h5" gutterBottom>
             Welcome
           </Typography>
           <DebounceInput
