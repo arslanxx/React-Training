@@ -18,11 +18,9 @@ const mapStateToProps = (state) => {
   };
 };
 
-const mapDispatchToProps = (dispatch) => {
-  return {
-    tvShowReq: (page) => dispatch(fetchTvShowRequest(page)),
-    searchReq: (paramData) => dispatch(searchTVRequest(paramData)),
-  };
+const mapDispatchToProps = {
+  tvShowReq: fetchTvShowRequest,
+  searchReq: searchTVRequest,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(TvShowComponent);

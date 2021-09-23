@@ -18,11 +18,9 @@ const mapStateToProps = (state) => {
   };
 };
 
-const mapDispatchToProps = (dispatch) => {
-  return {
-    upComingMoviesReq: (page) => dispatch(fetchUpComingMoviesRequest(page)),
-    searchReq: (paramData) => dispatch(searchUpComingMovieRequest(paramData)),
-  };
+const mapDispatchToProps = {
+  upComingMoviesReq: fetchUpComingMoviesRequest,
+  searchReq: searchUpComingMovieRequest,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(UpComingMovies);

@@ -18,11 +18,9 @@ const mapStateToProps = (state) => {
   };
 };
 
-const mapDispatchToProps = (dispatch) => {
-  return {
-    movieReq: (page) => dispatch(fetchMoviesRequest(page)),
-    searchReq: (paramData) => dispatch(fetchSearchMoviesRequest(paramData)),
-  };
+const mapDispatchToProps = {
+  movieReq: fetchMoviesRequest,
+  searchReq: fetchSearchMoviesRequest,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(MovieComponent);

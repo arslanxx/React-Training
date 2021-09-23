@@ -17,10 +17,8 @@ const mapStateToProps = (state) => {
   };
 };
 
-const mapDispatchToProps = (dispatch) => {
-  return {
-    detailReq: (id, component) => dispatch(fetchDetailRequest(id, component)),
-  };
+const mapDispatchToProps = {
+  detailReq: fetchDetailRequest,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(DetailComponent);

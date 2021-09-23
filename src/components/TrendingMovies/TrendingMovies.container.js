@@ -18,11 +18,9 @@ const mapStateToProps = (state) => {
   };
 };
 
-const mapDispatchToProps = (dispatch) => {
-  return {
-    trendingReq: (page) => dispatch(fetchTrendingRequest(page)),
-    searchReq: (paramData) => dispatch(searchTrendingMovieRequest(paramData)),
-  };
+const mapDispatchToProps = {
+  trendingReq: fetchTrendingRequest,
+  searchReq: searchTrendingMovieRequest,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(TrendingMovies);

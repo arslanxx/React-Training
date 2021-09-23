@@ -18,11 +18,9 @@ const mapStateToProps = (state) => {
   };
 };
 
-const mapDispatchToProps = (dispatch) => {
-  return {
-    peopleReq: (page) => dispatch(fetchPeopleRequest(page)),
-    searchReq: (paramData) => dispatch(searchPeopleRequest(paramData)),
-  };
+const mapDispatchToProps = {
+  peopleReq: fetchPeopleRequest,
+  searchReq: searchPeopleRequest,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Person);
