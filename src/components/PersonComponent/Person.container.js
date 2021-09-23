@@ -3,6 +3,7 @@ import {
   getPeopleData,
   getPeopleError,
   showPeopleLoader,
+  getPeoplePage,
 } from "../../store/selectors/peopleSelector";
 import {
   fetchPeopleRequest,
@@ -15,6 +16,7 @@ const mapStateToProps = (state) => {
     peopleData: getPeopleData(state),
     peopleLoader: showPeopleLoader(state),
     error: getPeopleError(state),
+    peoplePage: getPeoplePage(state),
   };
 };
 

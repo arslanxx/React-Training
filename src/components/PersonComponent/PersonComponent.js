@@ -10,12 +10,13 @@ export default function Person({
   peopleData,
   peopleReq,
   peopleLoader,
+  peoplePage,
   error,
   history,
   searchReq,
 }) {
   const classes = gridPadding();
-  const [page, setPage] = useState(1);
+  const [page, setPage] = useState(peoplePage);
   useEffect(() => {
     window.scrollTo(0, 0);
     peopleReq(page);
@@ -80,6 +81,7 @@ export default function Person({
             <Pagination
               count={peopleData.total_pages}
               handlePageChange={handlePageChange}
+              page={page}
             />
           </Container>
         </Grid>

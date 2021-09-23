@@ -10,7 +10,9 @@ const peopleReducer = (state = fromJS({ people: {} }), action) => {
   switch (action.type) {
     case FETCH_PEOPLE_REQUEST:
     case SEARCH_PEOPLE_REQUEST:
-      return state.setIn(["people", "loading"], true);
+      return state
+        .setIn(["people", "loading"], true)
+        .setIn(["people", "page"], action.page);
     case FETCH_PEOPLE_SUCCESS:
       return state
         .setIn(["people", "loading"], false)

@@ -14,6 +14,10 @@ export const showPeopleLoader = createSelector(getPeopleState, (state) => {
   return state.getIn(["people", "loading"]) || List();
 });
 
+export const getPeoplePage = createSelector(getPeopleState, (state) => {
+  return state.getIn(["people", "page"]) || 1;
+});
+
 export const getPeopleError = createSelector(getPeopleState, (state) => {
   return state.getIn(["people", "error"]) || List();
 });
