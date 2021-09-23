@@ -5,6 +5,7 @@ import { IMAGE_PATH } from "../../store/constants";
 import Typography from "@mui/material/Typography";
 import Loader from "../../shared/loader";
 import { detailStyle } from "../../styles/appStyles";
+import ReviewCard from "../../shared/reviewCard";
 
 export default function DetailComponent({
   detailData,
@@ -19,7 +20,6 @@ export default function DetailComponent({
   useEffect(() => {
     window.scrollTo(0, 0);
     detailReq(routesData);
-    console.log(reviews);
   }, []);
 
   const convertToString = (data) => {
@@ -245,7 +245,22 @@ export default function DetailComponent({
               </Grid>
             )}
           </Grid>
-          {reviews && <h1>{reviews[0]?.author}</h1>}
+          {routesData.component !== "person" && reviews.length > 0 && (
+            <Fragment>
+              <Typography
+                gutterBottom
+                className={classes.headingText}
+                variant="h5"
+                component="div"
+                sx={{ fontWeight: "bold" }}
+              >
+                Reviews
+              </Typography>
+              {reviews.map((review, index) => {
+                return <ReviewCard key={review + index} review={review} />;
+              })}
+            </Fragment>
+          )}
         </Fragment>
       )}
     </Fragment>
