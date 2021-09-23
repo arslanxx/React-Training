@@ -10,7 +10,9 @@ const trendingReducer = (state = fromJS({ trending: {} }), action) => {
   switch (action.type) {
     case FETCH_TRENDING_REQUEST:
     case SEARCH_TRENDINGMOVIE_REQUEST:
-      return state.setIn(["trending", "loading"], true);
+      return state
+        .setIn(["trending", "loading"], true)
+        .setIn(["trending", "page"], action.page);
     case FETCH_TRENDING_SUCCESS:
       return state
         .setIn(["trending", "loading"], false)

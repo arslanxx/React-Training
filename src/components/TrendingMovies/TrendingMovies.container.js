@@ -3,6 +3,7 @@ import {
   getTrendingData,
   getTrendingError,
   showTrendingLoader,
+  getTrendingPage,
 } from "../../store/selectors/trendingSelector";
 import {
   fetchTrendingRequest,
@@ -15,6 +16,7 @@ const mapStateToProps = (state) => {
     trendingData: getTrendingData(state),
     trendingLoader: showTrendingLoader(state),
     error: getTrendingError(state),
+    trendingPage: getTrendingPage(state),
   };
 };
 

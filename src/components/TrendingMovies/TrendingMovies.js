@@ -11,11 +11,12 @@ export default function Person({
   trendingReq,
   trendingLoader,
   error,
+  trendingPage,
   searchReq,
   history,
 }) {
   const classes = gridPadding();
-  const [page, setPage] = useState(1);
+  const [page, setPage] = useState(trendingPage);
   useEffect(() => {
     window.scrollTo(0, 0);
     trendingReq(page);
@@ -82,6 +83,7 @@ export default function Person({
             <Pagination
               count={trendingData.total_pages}
               handlePageChange={handlePageChange}
+              page={page}
             />
           </Container>
         </Grid>
