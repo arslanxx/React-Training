@@ -7,15 +7,10 @@ import { paginationStyles } from "../../styles/appStyles";
 export default function pagination({ count, handlePageChange }) {
   const classes = paginationStyles();
   return (
-    <Container
-      sx={{
-        display: "flex",
-        padding: "1rem 0 1rem 0",
-        justifyContent: "center",
-      }}
-    >
+    <Container>
       <Stack spacing={2}>
         <Pagination
+          className={classes.footerAlign}
           count={count}
           variant="outlined"
           shape="rounded"
