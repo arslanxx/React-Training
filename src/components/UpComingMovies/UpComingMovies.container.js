@@ -4,6 +4,7 @@ import {
   getUpComingMoviesData,
   getUpComingMoviesError,
   showUpComingMoviesLoader,
+  getUpComingMoviesPage,
 } from "../../store/selectors/upComingMoviesSelector";
 import {
   fetchUpComingMoviesRequest,
@@ -15,6 +16,7 @@ const mapStateToProps = (state) => {
     upComingMoviesData: getUpComingMoviesData(state),
     upComingMoviesLoader: showUpComingMoviesLoader(state),
     error: getUpComingMoviesError(state),
+    upComingMoviePage: getUpComingMoviesPage(state),
   };
 };
 

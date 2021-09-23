@@ -10,12 +10,13 @@ export default function MovieComponent({
   upComingMoviesData,
   upComingMoviesReq,
   upComingMoviesLoader,
+  upComingMoviePage,
   error,
   searchReq,
   history,
 }) {
   const classes = gridPadding();
-  const [page, setPage] = useState(1);
+  const [page, setPage] = useState(upComingMoviePage);
   useEffect(() => {
     window.scrollTo(0, 0);
     upComingMoviesReq(page);
@@ -82,6 +83,7 @@ export default function MovieComponent({
             <Pagination
               count={upComingMoviesData.total_pages}
               handlePageChange={handlePageChange}
+              page={page}
             />
           </Container>
         </Grid>

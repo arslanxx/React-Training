@@ -20,6 +20,13 @@ export const showUpComingMoviesLoader = createSelector(
   }
 );
 
+export const getUpComingMoviesPage = createSelector(
+  getUpCominMoviesState,
+  (state) => {
+    return state.getIn(["upComingMovies", "page"]) || 1;
+  }
+);
+
 export const getUpComingMoviesError = createSelector(
   getUpCominMoviesState,
   (state) => {
