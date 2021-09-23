@@ -14,6 +14,10 @@ export const showMovieLoader = createSelector(getMoiveState, (state) => {
   return state.getIn(["movies", "loading"]) || List();
 });
 
+export const getMoviesPage = createSelector(getMoiveState, (state) => {
+  return state.getIn(["movies", "page"]) || 1;
+});
+
 export const getMovieError = createSelector(getMoiveState, (state) => {
   return state.getIn(["movies", "error"]) || List();
 });

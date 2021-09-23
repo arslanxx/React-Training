@@ -10,7 +10,9 @@ const moviesReducer = (state = fromJS({ movies: {} }), action) => {
   switch (action.type) {
     case FETCH_MOVIE_REQUEST:
     case SEARCH_MOVIE_REQUEST:
-      return state.setIn(["movies", "loading"], true);
+      return state
+        .setIn(["movies", "loading"], true)
+        .setIn(["movies", "page"], action.page);
     case FETCH_MOVIE_SUCCESS:
       return state
         .setIn(["movies", "loading"], false)

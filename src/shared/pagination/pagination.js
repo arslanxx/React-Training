@@ -4,7 +4,7 @@ import Stack from "@mui/material/Stack";
 import { Container } from "@mui/material";
 import { paginationStyles } from "../../styles/appStyles";
 
-export default function pagination({ count, handlePageChange }) {
+export default function pagination({ count, handlePageChange, page }) {
   const classes = paginationStyles();
   return (
     <Container>
@@ -12,6 +12,7 @@ export default function pagination({ count, handlePageChange }) {
         <Pagination
           className={classes.footerAlign}
           count={count}
+          page={page}
           variant="outlined"
           shape="rounded"
           onChange={handlePageChange}

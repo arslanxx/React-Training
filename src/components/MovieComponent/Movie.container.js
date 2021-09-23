@@ -4,6 +4,7 @@ import {
   getMovieData,
   getMovieError,
   showMovieLoader,
+  getMoviesPage,
 } from "../../store/selectors/movieSelector";
 import {
   fetchMoviesRequest,
@@ -15,6 +16,7 @@ const mapStateToProps = (state) => {
     movieData: getMovieData(state),
     movieLoader: showMovieLoader(state),
     error: getMovieError(state),
+    moviePage: getMoviesPage(state),
   };
 };
 
