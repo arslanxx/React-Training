@@ -5,6 +5,8 @@ import { IMAGE_PATH } from "../../store/constants";
 import Loader from "../../shared/loader";
 import { detailStyle } from "../../styles/appStyles";
 import ReviewCard from "../../shared/reviewCard";
+import { PersonData } from "./PersonData/PersonData";
+import { MediaData } from "./MediaData/MediaData";
 
 export default function DetailComponent({
   detailData,
@@ -67,169 +69,14 @@ export default function DetailComponent({
             </Grid>
             {routesData.component !== "person" ? (
               <Grid item xl={6} lg={6} md={6} sm={6} xs={12}>
-                <Typography
-                  gutterBottom
-                  variant="h5"
-                  className={classes.headingText}
-                >
-                  OverView
-                </Typography>
-
-                <Typography
-                  className={classes.textStyle}
-                  variant="body2"
-                  color="text.secondary"
-                >
-                  {detailData.overview}
-                </Typography>
-                <Typography
-                  gutterBottom
-                  className={classes.headingText}
-                  variant="h5"
-                >
-                  Genres
-                </Typography>
-                <Typography
-                  className={classes.textStyle}
-                  variant="body2"
-                  color="text.secondary"
-                >
-                  {concatMovieGenres(detailData.genres)}
-                </Typography>
-
-                <Typography
-                  gutterBottom
-                  className={classes.headingText}
-                  variant="h5"
-                >
-                  Language
-                </Typography>
-                <Typography
-                  className={classes.textStyle}
-                  variant="body2"
-                  color="text.secondary"
-                >
-                  {detailData.original_language}
-                </Typography>
-
-                <Typography
-                  gutterBottom
-                  className={classes.headingText}
-                  variant="h5"
-                >
-                  Tag Line
-                </Typography>
-                <Typography
-                  className={classes.textStyle}
-                  variant="body2"
-                  color="text.secondary"
-                >
-                  {detailData.tagline}
-                </Typography>
-
-                <Typography
-                  gutterBottom
-                  className={classes.headingText}
-                  variant="h5"
-                >
-                  Status
-                </Typography>
-                <Typography
-                  className={classes.textStyle}
-                  variant="body2"
-                  color="text.secondary"
-                >
-                  {detailData.status}
-                </Typography>
-                <Typography
-                  gutterBottom
-                  className={classes.headingText}
-                  variant="h5"
-                >
-                  Release Date
-                </Typography>
-                <Typography
-                  className={classes.textStyle}
-                  variant="body2"
-                  color="text.secondary"
-                >
-                  {detailData.release_date ?? detailData.first_air_date}
-                </Typography>
+                <MediaData
+                  detailData={detailData}
+                  concatMovieGenres={concatMovieGenres}
+                />
               </Grid>
             ) : (
               <Grid item xl={6} lg={6} md={6} sm={6} xs={12}>
-                <Typography
-                  className={classes.headingText}
-                  gutterBottom
-                  variant="h5"
-                >
-                  Biography
-                </Typography>
-                <Typography
-                  className={classes.textStyle}
-                  variant="body2"
-                  color="text.secondary"
-                >
-                  {detailData.biography}
-                </Typography>
-                <Typography
-                  className={classes.headingText}
-                  gutterBottom
-                  variant="h5"
-                >
-                  Gender
-                </Typography>
-
-                <Typography
-                  className={classes.textStyle}
-                  variant="body2"
-                  color="text.secondary"
-                >
-                  {detailData.gender === 1 ? "Female" : "Male"}
-                </Typography>
-                <Typography
-                  className={classes.headingText}
-                  gutterBottom
-                  variant="h5"
-                >
-                  Department
-                </Typography>
-                <Typography
-                  className={classes.textStyle}
-                  variant="body2"
-                  color="text.secondary"
-                >
-                  {detailData.known_for_department}
-                </Typography>
-
-                <Typography
-                  className={classes.headingText}
-                  gutterBottom
-                  variant="h5"
-                >
-                  Birthday
-                </Typography>
-                <Typography
-                  className={classes.textStyle}
-                  variant="body2"
-                  color="text.secondary"
-                >
-                  {detailData.birthday}
-                </Typography>
-                <Typography
-                  gutterBottom
-                  className={classes.headingText}
-                  variant="h5"
-                >
-                  Birth Place
-                </Typography>
-                <Typography
-                  className={classes.textStyle}
-                  variant="body2"
-                  color="text.secondary"
-                >
-                  {detailData.place_of_birth}
-                </Typography>
+                <PersonData detailData={detailData} />
               </Grid>
             )}
           </Grid>
