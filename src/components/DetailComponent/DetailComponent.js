@@ -21,7 +21,7 @@ export default function DetailComponent({
     detailReq(routesData);
   }, [routesData]);
 
-  const convertToString = (data) => {
+  const concatMovieGenres = (data) => {
     let str = "";
     data?.forEach((recipe) => {
       str =
@@ -96,7 +96,7 @@ export default function DetailComponent({
                   variant="body2"
                   color="text.secondary"
                 >
-                  {convertToString(detailData.genres)}
+                  {concatMovieGenres(detailData.genres)}
                 </Typography>
 
                 <Typography
