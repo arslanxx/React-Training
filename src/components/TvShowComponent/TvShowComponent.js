@@ -10,12 +10,13 @@ export default function TvShowComponent({
   tvShowData,
   tvShowReq,
   tvShowLoader,
+  tvPage,
   searchReq,
   error,
   history,
 }) {
   const classes = gridPadding();
-  const [page, setPage] = useState(1);
+  const [page, setPage] = useState(tvPage);
   useEffect(() => {
     window.scrollTo(0, 0);
     tvShowReq(page);
@@ -80,6 +81,7 @@ export default function TvShowComponent({
             <Pagination
               count={tvShowData.total_pages}
               handlePageChange={handlePageChange}
+              page={page}
             />
           </Container>
         </Grid>

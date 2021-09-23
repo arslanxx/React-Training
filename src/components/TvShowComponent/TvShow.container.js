@@ -3,6 +3,7 @@ import {
   getTvShowData,
   getTvShowError,
   showTvShowLoader,
+  getTvShowPage,
 } from "../../store/selectors/tvShowSelector";
 import {
   fetchTvShowRequest,
@@ -15,6 +16,7 @@ const mapStateToProps = (state) => {
     tvShowData: getTvShowData(state),
     tvShowLoader: showTvShowLoader(state),
     error: getTvShowError(state),
+    tvPage: getTvShowPage(state),
   };
 };
 

@@ -14,6 +14,10 @@ export const showTvShowLoader = createSelector(getTvShowState, (state) => {
   return state.getIn(["tvShows", "loading"]) || List();
 });
 
+export const getTvShowPage = createSelector(getTvShowState, (state) => {
+  return state.getIn(["tvShows", "page"]) || 1;
+});
+
 export const getTvShowError = createSelector(getTvShowState, (state) => {
   return state.getIn(["tvShows", "error"]) || List();
 });
