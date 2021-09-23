@@ -36,7 +36,7 @@ export default function TvShowComponent({
             ? tvShowData?.results?.map((tv, index) => {
                 return (
                   <Grid
-                    key={JSON.stringify(tv) + index}
+                    key={tv.id}
                     item
                     xs={12}
                     sm={6}
@@ -53,7 +53,7 @@ export default function TvShowComponent({
                 <Grid container>
                   {tvShowData?.results?.map((show, index) => (
                     <Grid
-                      key={JSON.stringify(show) + index}
+                      key={show.id}
                       item
                       xs={12}
                       sm={6}
@@ -63,7 +63,7 @@ export default function TvShowComponent({
                       sx={{ paddingRight: "1rem", paddingLeft: "1rem" }}
                     >
                       <Card
-                        key={JSON.stringify(show) + index}
+                        key={show.id}
                         title={show.name}
                         overView={show.overview}
                         image={show.poster_path}

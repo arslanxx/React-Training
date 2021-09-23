@@ -32,14 +32,14 @@ export default function Person({
       />
 
       {/* <Box > */}
-      <Container sx={{ height: "100vh" }}>
+      <Container>
         {error && <h1>{error}</h1>}
         <Grid container>
           {trendingLoader === true
             ? trendingData?.results?.map((trending, index) => {
                 return (
                   <Grid
-                    key={JSON.stringify(trending) + index}
+                    key={trending.id}
                     item
                     xs={12}
                     sm={6}
@@ -56,7 +56,7 @@ export default function Person({
                 <Grid container>
                   {trendingData?.results?.map((trending, index) => (
                     <Grid
-                      key={JSON.stringify(trending) + index}
+                      key={trending.id}
                       item
                       xs={12}
                       sm={6}
@@ -66,7 +66,7 @@ export default function Person({
                       sx={{ paddingRight: "1rem", paddingLeft: "1rem" }}
                     >
                       <Card
-                        key={JSON.stringify(trending) + index}
+                        key={trending.id}
                         title={trending.title}
                         overView={trending.overview}
                         image={trending.poster_path}

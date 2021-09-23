@@ -64,7 +64,7 @@ export default function Header() {
             {movieMenu.map((menu, index) => {
               return (
                 <MenuItem
-                  key={JSON.stringify(menu) + index}
+                  key={menu.id}
                   onClick={(event) => handleClose(event, menu.route)}
                 >
                   {menu.name}

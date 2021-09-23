@@ -7,27 +7,13 @@ import DetailComponent from "../components/DetailComponent";
 
 export const routes = [
   {
+    id: 1,
     path: "/",
     Component: MovieComponent,
   },
-  {
-    path: "/people",
-    Component: Person,
-  },
-  {
-    path: "/tvShows",
-    Component: TvShowComponent,
-  },
-  {
-    path: "/upcoming",
-    Component: UpComingMovies,
-  },
-  {
-    path: "/trending",
-    Component: TrendingMovies,
-  },
-  {
-    path: "/details/:id/:component",
-    Component: DetailComponent,
-  },
+  { id: 2, path: "/people", Component: Person },
+  { id: 3, path: "/tvShows", Component: TvShowComponent },
+  { id: 4, path: "/upcoming", Component: UpComingMovies },
+  { id: 5, path: "/trending", Component: TrendingMovies },
+  { id: 6, path: "/details/:id/:component", Component: DetailComponent },
 ];

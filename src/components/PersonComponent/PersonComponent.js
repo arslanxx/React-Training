@@ -37,7 +37,7 @@ export default function Person({
             ? peopleData?.results?.map((people, index) => {
                 return (
                   <Grid
-                    key={JSON.stringify(people) + index}
+                    key={people.id}
                     item
                     xs={12}
                     sm={6}
@@ -54,7 +54,7 @@ export default function Person({
                 <Grid container>
                   {peopleData?.results?.map((person, index) => (
                     <Grid
-                      key={JSON.stringify(person) + index}
+                      key={person.id}
                       item
                       xs={12}
                       sm={6}
@@ -64,7 +64,7 @@ export default function Person({
                       sx={{ paddingRight: "1rem", paddingLeft: "1rem" }}
                     >
                       <Card
-                        key={JSON.stringify(person) + index}
+                        key={person.id}
                         title={person.name}
                         overView={person.known_for_department}
                         image={person.profile_path}

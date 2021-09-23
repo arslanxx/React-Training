@@ -1,8 +1,8 @@
 export const API_KEY = "1cf8999b3a4fae5d3823303ca75a3c03";
 
 export const movieMenu = [
-  { name: "Upcoming Movies", route: "/upcoming" },
-  { name: "Trending Movies", route: "/trending" },
+  { id: 1, name: "Upcoming Movies", route: "/upcoming" },
+  { id: 2, name: "Trending Movies", route: "/trending" },
 ];
 
 export const FETCH_MOVIE_REQUEST = "FETCH_MOVIE_REQUEST";

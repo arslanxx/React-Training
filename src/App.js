@@ -16,7 +16,7 @@ function App() {
             {routes.map((route, index) => {
               return (
                 <Route
-                  key={JSON.stringify(route) + index}
+                  key={route.id}
                   exact
                   path={route.path}
                   component={route.Component}

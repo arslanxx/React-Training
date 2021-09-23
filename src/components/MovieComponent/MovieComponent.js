@@ -35,7 +35,7 @@ export default function MovieComponent({
             ? movieData?.results?.map((movie, index) => {
                 return (
                   <Grid
-                    key={JSON.stringify(movie) + index}
+                    key={movie.id}
                     item
                     xs={12}
                     sm={6}
@@ -50,7 +50,7 @@ export default function MovieComponent({
               })
             : movieData?.results?.map((movie, index) => (
                 <Grid
-                  key={JSON.stringify(movie) + index}
+                  key={movie.id}
                   item
                   xs={12}
                   sm={6}
@@ -60,7 +60,7 @@ export default function MovieComponent({
                   sx={{ paddingRight: "1rem", paddingLeft: "1rem" }}
                 >
                   <Card
-                    key={JSON.stringify(movie) + index}
+                    key={movie.id}
                     title={movie.title}
                     overView={movie.overview}
                     image={movie.poster_path}
