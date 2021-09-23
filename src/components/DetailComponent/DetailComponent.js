@@ -1,7 +1,7 @@
 import { Container, Grid } from "@material-ui/core";
 import React, { Fragment, useEffect } from "react";
-import { IMAGE_PATH } from "../../store/constants";
 import Typography from "@mui/material/Typography";
+import { IMAGE_PATH } from "../../store/constants";
 import Loader from "../../shared/loader";
 import { detailStyle } from "../../styles/appStyles";
 import ReviewCard from "../../shared/reviewCard";

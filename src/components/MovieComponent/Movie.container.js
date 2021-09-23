@@ -1,5 +1,5 @@
-import MovieComponent from "./MovieComponent";
 import { connect } from "react-redux";
+import MovieComponent from "./MovieComponent";
 import {
   getMovieData,
   getMovieError,

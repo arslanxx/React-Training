@@ -1,7 +1,7 @@
 import React, { Fragment, useEffect, useState } from "react";
+import { Container, Grid } from "@mui/material";
 import Card from "../../shared/card";
 import SearchBar from "../SearchBar/index";
-import { Container, Grid } from "@mui/material";
 import Pagination from "../../shared/pagination";
 import Skeleton from "../../shared/skeleton";
 

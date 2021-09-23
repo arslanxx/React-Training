@@ -1,4 +1,3 @@
-import DetailComponent from "./DetailComponent";
 import { connect } from "react-redux";
 import {
   getDetailData,
@@ -6,6 +5,7 @@ import {
   showDetailLoader,
   showReviews,
 } from "../../store/selectors/detailSelector";
+import DetailComponent from "./DetailComponent";
 import { fetchDetailRequest } from "../../store/actions/detailsActions";
 
 const mapStateToProps = (state) => {

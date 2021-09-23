@@ -2,10 +2,10 @@ import * as React from "react";
 import CssBaseline from "@mui/material/CssBaseline";
 import Box from "@mui/material/Box";
 import Container from "@mui/material/Container";
+import { Typography } from "@mui/material";
 import { DebounceInput } from "react-debounce-input";
 import { searchStlyes } from "../../styles/appStyles";
 import searchBackgroundImage from "../../assets/searchBackgroundImage/searchBackgroundImage.jpeg";
-import { Typography } from "@mui/material";
 
 export default function SearchBar({
   handleSearchReq,
