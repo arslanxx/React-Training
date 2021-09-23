@@ -38,7 +38,7 @@ export default function Header() {
           <img
             src={shortLogo}
             onClick={() => handleChangeTab("/")}
-            style={{ width: "10%", cursor: "pointer" }}
+            className={classes.headerLogo}
             alt="Moviedb"
           />
           <Button
@@ -56,7 +56,7 @@ export default function Header() {
             anchorEl={anchorEl}
             open={open}
             onClose={handleClose}
-            style={{ marginTop: "2%" }}
+            className={classes.mt}
             MenuListProps={{
               "aria-labelledby": "basic-button",
             }}

@@ -2,11 +2,13 @@ import React from "react";
 import Pagination from "@mui/material/Pagination";
 import Stack from "@mui/material/Stack";
 import { Container } from "@mui/material";
+import { paginationStyles } from "../../styles/appStyles";
 
 export default function pagination({ count, handlePageChange }) {
+  const classes = paginationStyles();
   return (
     <Container
-      style={{
+      sx={{
         display: "flex",
         padding: "1rem 0 1rem 0",
         justifyContent: "center",

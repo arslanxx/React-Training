@@ -5,14 +5,16 @@ import { Grid } from "@material-ui/core";
 import Avatar from "@mui/material/Avatar";
 import Typography from "@mui/material/Typography";
 import { IMAGE_PATH } from "../../store/constants";
+import { reviewCardStyle } from "../../styles/appStyles";
 
 export default function ReviewCard({ review }) {
+  const classes = reviewCardStyle();
   return (
     <Fragment>
       <Accordion>
         <AccordionSummary aria-controls="panel1a-content" id="panel1a-header">
           <Grid container>
-            <Grid item style={{ display: "flex", alignItems: "center" }} lg={2}>
+            <Grid item className={classes.cardAlign} lg={2}>
               <Avatar
                 alt="Cindy Baker"
                 src={IMAGE_PATH + review.author_details.avatar_path}

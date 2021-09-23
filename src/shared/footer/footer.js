@@ -9,7 +9,7 @@ export default function Footer() {
   return (
     <Grid className={footerClass.footerLayout} container>
       <Grid item xs={12} sm={6} md={2} lg={2} xl={2}>
-        <img src={squareLogo} style={{ width: "60%" }} alt="Moviedb" />
+        <img src={squareLogo} className={footerClass.img} alt="Moviedb" />
       </Grid>
       <Grid item xs={8} sm={12} md={6} lg={4} xl={4}>
         <Typography

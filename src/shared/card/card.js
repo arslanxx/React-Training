@@ -5,6 +5,7 @@ import CardMedia from "@mui/material/CardMedia";
 import Typography from "@mui/material/Typography";
 import { CardActionArea } from "@mui/material";
 import { IMAGE_PATH } from "../../store/constants";
+import { cardStyles } from "../../styles/appStyles";
 
 export default function ActionAreaCard({
   title,
@@ -14,19 +15,12 @@ export default function ActionAreaCard({
   history,
   component,
 }) {
+  const classes = cardStyles();
   const handleOnClick = () => {
     history.push("/details/" + id + "/" + component);
   };
   return (
-    <Card
-      sx={{
-        maxWidth: 345,
-        height: "45vh",
-        marginTop: "5%",
-        marginBottom: "5%",
-      }}
-      onClick={handleOnClick}
-    >
+    <Card className={classes.cardBox} onClick={handleOnClick}>
       <CardActionArea>
         <CardMedia
           component="img"

@@ -8,6 +8,13 @@ export const appBarStyle = makeStyles((theme) => ({
   btnColor: {
     color: "#fff",
   },
+  headerLogo: {
+    width: "10%",
+    cursor: "pointer",
+  },
+  mt: {
+    marginTop: "2%",
+  },
 }));
 
 export const footerStyle = makeStyles((theme) => ({
@@ -23,6 +30,9 @@ export const footerStyle = makeStyles((theme) => ({
   fontBold: {
     fontWeight: "bold",
   },
+  img: {
+    width: "60%",
+  },
 }));
 
 export const detailStyle = makeStyles(() => ({
@@ -36,6 +46,14 @@ export const detailStyle = makeStyles(() => ({
   },
   headingText: {
     marginTop: "3% !important",
+    fontWeight: "bold",
+  },
+  height100: {
+    height: "100vh",
+  },
+  gridStyle: {
+    marginTop: "3rem",
+    padding: "0 2rem 0 2rem",
   },
   imgStyle: { width: "60%", padding: "1rem 0 1rem 0rem" },
 }));
@@ -51,5 +69,51 @@ export const searchStlyes = makeStyles(() => ({
     "&:hover": {
       border: "1px solid #005FCC",
     },
+  },
+  gridStyle: {
+    paddingTop: "2rem",
+    paddingBottom: "2rem",
+  },
+}));
+
+export const paginationStyles = makeStyles(() => ({
+  footerAlign: {
+    display: "flex",
+    padding: "1rem 0 1rem 0",
+    justifyContent: "center",
+  },
+}));
+
+export const reviewCardStyle = makeStyles(() => ({
+  cardAlign: {
+    display: "flex",
+    alignItems: "center",
+  },
+}));
+
+export const skeletonCardStyle = makeStyles(() => ({
+  mt: {
+    marginTop: "20px",
+  },
+}));
+
+export const gridPadding = makeStyles(() => ({
+  paddingLR: { paddingRight: "1rem", paddingLeft: "1rem" },
+}));
+
+export const cardStyles = makeStyles(() => ({
+  cardBox: {
+    maxWidth: 345,
+    height: "45vh",
+    marginTop: "5%",
+    marginBottom: "5%",
+  },
+}));
+
+export const loaderStyles = makeStyles(() => ({
+  pageLoader: {
+    display: "flex",
+    justifyContent: "center",
+    paddingTop: "20rem",
   },
 }));

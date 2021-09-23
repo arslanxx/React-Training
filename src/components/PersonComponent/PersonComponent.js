@@ -4,6 +4,7 @@ import Skeleton from "../../shared/skeleton";
 import Card from "../../shared/card";
 import SearchBar from "../SearchBar/index";
 import Pagination from "../../shared/pagination";
+import { gridPadding } from "../../styles/appStyles";
 
 export default function Person({
   peopleData,
@@ -13,6 +14,7 @@ export default function Person({
   history,
   searchReq,
 }) {
+  const classes = gridPadding();
   const [page, setPage] = useState(1);
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -42,7 +44,7 @@ export default function Person({
                     md={4}
                     lg={3}
                     xl={3}
-                    sx={{ paddingRight: "1rem", paddingLeft: "1rem" }}
+                    className={classes.paddingLR}
                   >
                     <Skeleton />
                   </Grid>
@@ -59,7 +61,7 @@ export default function Person({
                       md={4}
                       lg={3}
                       xl={3}
-                      sx={{ paddingRight: "1rem", paddingLeft: "1rem" }}
+                      className={classes.paddingLR}
                     >
                       <Card
                         key={person.id}

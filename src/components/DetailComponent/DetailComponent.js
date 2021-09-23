@@ -35,7 +35,7 @@ export default function DetailComponent({
   return (
     <Fragment>
       {detailLoader === true ? (
-        <Container style={{ height: "100vh" }}>
+        <Container className={classes.height100}>
           <Loader />
         </Container>
       ) : (
@@ -43,10 +43,7 @@ export default function DetailComponent({
           <Typography gutterBottom variant="h3">
             {detailData.title ?? detailData.original_name ?? detailData.name}
           </Typography>
-          <Grid
-            container
-            style={{ marginTop: "3rem", padding: "0 2rem 0 2rem" }}
-          >
+          <Grid container className={classes.gridStyle}>
             <Grid item xl={6} lg={6} md={6} sm={6} xs={12}>
               {routesData.component === "person" && (
                 <img
@@ -86,7 +83,6 @@ export default function DetailComponent({
                 gutterBottom
                 className={classes.headingText}
                 variant="h5"
-                sx={{ fontWeight: "bold" }}
               >
                 Reviews
               </Typography>

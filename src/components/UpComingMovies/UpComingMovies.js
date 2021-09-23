@@ -4,6 +4,7 @@ import Card from "../../shared/card";
 import SearchBar from "../SearchBar/index";
 import Pagination from "../../shared/pagination";
 import Skeleton from "../../shared/skeleton";
+import { gridPadding } from "../../styles/appStyles";
 
 export default function MovieComponent({
   upComingMoviesData,
@@ -13,6 +14,7 @@ export default function MovieComponent({
   searchReq,
   history,
 }) {
+  const classes = gridPadding();
   const [page, setPage] = useState(1);
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -44,7 +46,7 @@ export default function MovieComponent({
                     md={4}
                     lg={3}
                     xl={3}
-                    sx={{ paddingRight: "1rem", paddingLeft: "1rem" }}
+                    className={classes.paddingLR}
                   >
                     <Skeleton />
                   </Grid>
@@ -61,7 +63,7 @@ export default function MovieComponent({
                       md={4}
                       lg={3}
                       xl={3}
-                      sx={{ paddingRight: "1rem", paddingLeft: "1rem" }}
+                      className={classes.paddingLR}
                     >
                       <Card
                         key={movie.id}
