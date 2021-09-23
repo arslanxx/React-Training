@@ -1,6 +1,5 @@
 import { Container, Grid } from "@material-ui/core";
 import React, { Fragment, useEffect } from "react";
-import { useParams } from "react-router-dom";
 import { IMAGE_PATH } from "../../store/constants";
 import Typography from "@mui/material/Typography";
 import Loader from "../../shared/loader";
@@ -20,7 +19,7 @@ export default function DetailComponent({
   useEffect(() => {
     window.scrollTo(0, 0);
     detailReq(routesData);
-  }, []);
+  }, [routesData]);
 
   const convertToString = (data) => {
     let str = "";

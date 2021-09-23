@@ -1,7 +1,6 @@
 import React, { Fragment, useEffect, useState } from "react";
 import Card from "../../shared/card";
 import SearchBar from "../SearchBar/index";
-import Loader from "../../shared/loader";
 import { Container, Grid } from "@mui/material";
 import Pagination from "../../shared/pagination";
 import Skeleton from "../../shared/skeleton";
