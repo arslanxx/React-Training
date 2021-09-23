@@ -49,18 +49,21 @@ export default function DetailComponent({
                 <img
                   className={classes.imgStyle}
                   src={IMAGE_PATH + detailData?.profile_path}
+                  alt="person"
                 />
               )}
               {routesData.component === "tv" && (
                 <img
                   className={classes.imgStyle}
                   src={IMAGE_PATH + detailData?.poster_path}
+                  alt="tvShow"
                 />
               )}
               {routesData.component === "movie" && (
                 <img
                   className={classes.imgStyle}
                   src={IMAGE_PATH + detailData?.poster_path}
+                  alt="movie"
                 />
               )}
             </Grid>
