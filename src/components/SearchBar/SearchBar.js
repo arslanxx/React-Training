@@ -5,7 +5,6 @@ import Container from "@mui/material/Container";
 import { Typography } from "@mui/material";
 import { DebounceInput } from "react-debounce-input";
 import { searchStlyes } from "../../styles/appStyles";
-import searchBackgroundImage from "../../assets/searchBackgroundImage/searchBackgroundImage.jpeg";
 
 export default function SearchBar({
   handleSearchReq,
