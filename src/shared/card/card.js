@@ -6,6 +6,7 @@ import Typography from "@mui/material/Typography";
 import { CardActionArea } from "@mui/material";
 import { IMAGE_PATH } from "../../store/constants";
 import { cardStyles } from "../../styles/appStyles";
+import Rating from "@mui/material/Rating";
 
 export default function ActionAreaCard({
   title,
@@ -14,6 +15,7 @@ export default function ActionAreaCard({
   id,
   history,
   component,
+  rating,
 }) {
   const classes = cardStyles();
   const handleOnClick = () => {
@@ -32,9 +34,15 @@ export default function ActionAreaCard({
           <Typography gutterBottom variant="h5">
             {title}
           </Typography>
-          {/* <Typography variant="body2" color="text.secondary">
-            {overView}
-          </Typography> */}
+          {component !== "person" && (
+            <Rating
+              name={title}
+              value={rating}
+              precision={0.5}
+              max={6}
+              readOnly
+            />
+          )}
         </CardContent>
       </CardActionArea>
     </Card>

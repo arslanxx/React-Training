@@ -76,6 +76,7 @@ export default function TvShowComponent({
                         id={show.id}
                         history={history}
                         component={"tv"}
+                        rating={show.vote_average}
                       />
                     </Grid>
                   ))}

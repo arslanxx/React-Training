@@ -78,6 +78,7 @@ export default function Person({
                         id={trending.id}
                         history={history}
                         component={"movie"}
+                        rating={trending.vote_average}
                       />
                     </Grid>
                   ))}

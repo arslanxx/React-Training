@@ -75,6 +75,7 @@ export default function MovieComponent({
                     id={movie.id}
                     history={history}
                     component={"movie"}
+                    rating={movie.vote_average}
                   />
                 </Grid>
               ))}
