@@ -88,6 +88,14 @@ export const reviewCardStyle = makeStyles(() => ({
   cardAlign: {
     display: "flex",
     alignItems: "center",
+    justifyContent: "center",
+  },
+  mt: {
+    marginTop: "1rem",
+  },
+  title: {
+    display: "flex",
+    justifyContent: "centre ",
   },
 }));
 

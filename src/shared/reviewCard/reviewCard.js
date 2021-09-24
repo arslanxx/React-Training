@@ -14,7 +14,7 @@ export default function ReviewCard({ review }) {
       <Accordion>
         <AccordionSummary aria-controls="panel1a-content" id="panel1a-header">
           <Grid container>
-            <Grid item className={classes.cardAlign} lg={2}>
+            <Grid item className={classes.cardAlign} lg={12}>
               <Avatar
                 alt="Cindy Baker"
                 src={IMAGE_PATH + review.author_details.avatar_path}
@@ -31,7 +31,7 @@ export default function ReviewCard({ review }) {
                 {review.author}
               </Typography>
             </Grid>
-            <Grid item lg={10}>
+            <Grid className={classes.mt} item lg={12}>
               <Typography sx={{ flexShrink: 0 }}>{review.content}</Typography>
             </Grid>
           </Grid>
