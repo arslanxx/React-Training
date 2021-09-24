@@ -8,10 +8,10 @@ export default function Footer() {
 
   return (
     <Grid className={footerClass.footerLayout} container>
-      <Grid item xs={12} sm={6} md={2} lg={2} xl={2}>
+      <Grid item xs={9} sm={7} md={2} lg={2} xl={2}>
         <img src={squareLogo} className={footerClass.img} alt="Moviedb" />
       </Grid>
-      <Grid item xs={8} sm={12} md={6} lg={4} xl={4}>
+      <Grid item xs={12} sm={6} md={4} lg={2} xl={4}>
         <Typography
           className={footerClass.fontBold}
           variant="h5"
@@ -35,7 +35,7 @@ export default function Footer() {
           System Status
         </Typography>
       </Grid>
-      <Grid item xs={12} sm={2} md={2} lg={2} xl={2}>
+      <Grid item xs={12} sm={6} md={2} lg={2} xl={2}>
         <Typography
           className={footerClass.fontBold}
           variant="h5"
@@ -56,7 +56,7 @@ export default function Footer() {
           Add New TV Show
         </Typography>
       </Grid>
-      <Grid item xs={12} sm={2} md={2} lg={2} xl={2}>
+      <Grid item xs={12} sm={6} md={2} lg={2} xl={2}>
         <Typography
           className={footerClass.fontBold}
           variant="h5"
@@ -77,7 +77,7 @@ export default function Footer() {
           Twitter
         </Typography>
       </Grid>
-      <Grid item xs={12} sm={2} md={2} lg={2} xl={2}>
+      <Grid item xs={12} sm={6} md={2} lg={2} xl={2}>
         <Typography
           className={footerClass.fontBold}
           variant="h5"
