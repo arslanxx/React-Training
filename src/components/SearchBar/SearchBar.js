@@ -1,4 +1,4 @@
-import * as React from "react";
+import React, { useEffect, useState } from "react";
 import CssBaseline from "@mui/material/CssBaseline";
 import Box from "@mui/material/Box";
 import Container from "@mui/material/Container";
@@ -6,18 +6,14 @@ import { Typography } from "@mui/material";
 import { DebounceInput } from "react-debounce-input";
 import { searchStlyes } from "../../styles/appStyles";
 
-export default function SearchBar({
-  handleSearchReq,
-  handleGetReq,
-  component,
-  page,
-}) {
+export default function SearchBar({ component, handleSearchText }) {
   const searchClass = searchStlyes();
-  const handleTextChange = (value) => {
-    value === ""
-      ? handleGetReq()
-      : handleSearchReq({ query: value, component: component, page: page });
-  };
+  const [text, setText] = useState("");
+
+  useEffect(() => {
+    handleSearchText(text);
+  }, [text]);
+
   return (
     <React.Fragment>
       <CssBaseline />
@@ -27,10 +23,10 @@ export default function SearchBar({
             Welcome
           </Typography>
           <DebounceInput
-            minLength={2}
+            minLength={4}
             debounceTimeout={300}
             placeholder={`Search for a ${component}`}
-            onChange={(e) => handleTextChange(e.target.value)}
+            onChange={(e) => setText(e.target.value)}
             className={searchClass.searchBar}
           />
         </Box>

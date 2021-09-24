@@ -39,7 +39,7 @@ export const getDetailViewData = (id, component) => {
     : Promise.all([axios.request(detailURL), axios.request(reviewURL)]);
 };
 
-export function getSearchList(queryData, component, page) {
+export function getSearchList(queryData, component, page = 1) {
   return axios.get(
     `${API_ENDPOINT}search/${component}/?api_key=${API_KEY}&language=en-US&query=${queryData}&page=${page}&include_adult=false`
   );
