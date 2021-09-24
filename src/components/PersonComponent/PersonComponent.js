@@ -36,7 +36,7 @@ export default function Person({
         component={component}
         handleSearchText={(value) => setPersonSearch(value)}
       />
-      <Container>
+      <Container className={classes.minHeigth}>
         <Grid container>
           {error && <h1>{error}</h1>}
           {peopleLoader === true

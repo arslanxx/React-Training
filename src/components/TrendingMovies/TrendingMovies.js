@@ -37,7 +37,7 @@ export default function Person({
       />
 
       {/* <Box > */}
-      <Container>
+      <Container className={classes.minHeigth}>
         {error && <h1>{error}</h1>}
         <Grid container>
           {trendingLoader === true

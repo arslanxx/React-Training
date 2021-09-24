@@ -35,7 +35,7 @@ export default function TvShowComponent({
         component={component}
         handleSearchText={(value) => setTvShowSearch(value)}
       />
-      <Container>
+      <Container className={classes.minHeigth}>
         <Grid container>
           {error && <h1>{error}</h1>}
           {tvShowLoader === true

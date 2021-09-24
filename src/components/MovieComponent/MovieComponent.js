@@ -36,7 +36,7 @@ export default function MovieComponent({
         component={component}
         handleSearchText={(value) => setMovieSearch(value)}
       />
-      <Container>
+      <Container className={classes.minHeigth}>
         {error && <h1>{error}</h1>}
         <Grid container>
           {movieLoader === true

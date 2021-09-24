@@ -107,6 +107,9 @@ export const skeletonCardStyle = makeStyles(() => ({
 
 export const gridPadding = makeStyles(() => ({
   paddingLR: { paddingRight: "1rem", paddingLeft: "1rem" },
+  minHeigth: {
+    minHeight: "100vh",
+  },
 }));
 
 export const cardStyles = makeStyles(() => ({
