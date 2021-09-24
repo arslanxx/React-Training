@@ -30,6 +30,7 @@ export default function MovieComponent({
         handleSearchReq={searchReq}
         handleGetReq={upComingMoviesReq}
         component={"movie"}
+        page={page}
       />
 
       <Container>

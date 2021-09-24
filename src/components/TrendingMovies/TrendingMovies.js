@@ -30,6 +30,7 @@ export default function Person({
         handleSearchReq={searchReq}
         handleGetReq={trendingReq}
         component={"movie"}
+        page={page}
       />
 
       {/* <Box > */}

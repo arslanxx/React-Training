@@ -10,7 +10,12 @@ function* tvShowSaga({ payload, page }) {
   try {
     const tvShowList = !payload
       ? yield call(GetTvShowsList, page)
-      : yield call(getSearchList, payload.query, payload.component);
+      : yield call(
+          getSearchList,
+          payload.query,
+          payload.component,
+          payload.page
+        );
     yield put(fetchTvShowSuccess(tvShowList.data));
   } catch (e) {
     yield put(fetchTvShowFailure(e.response.data.status_message));

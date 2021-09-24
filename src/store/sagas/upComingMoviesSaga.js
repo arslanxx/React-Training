@@ -13,7 +13,12 @@ function* upComingMoviesSaga({ payload, page }) {
   try {
     const upComingList = !payload
       ? yield call(getUpComingMovies, page)
-      : yield call(getSearchList, payload.query, payload.component);
+      : yield call(
+          getSearchList,
+          payload.query,
+          payload.component,
+          payload.page
+        );
     yield put(fetchUpComingMoviesSuccess(upComingList.data));
   } catch (e) {
     yield put(fetchUpComingMoviesFailure(e.response.data.status_message));

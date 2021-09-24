@@ -29,6 +29,7 @@ export default function MovieComponent({
       <SearchBar
         handleSearchReq={searchReq}
         handleGetReq={movieReq}
+        page={page}
         component={"movie"}
       />
       <Container>

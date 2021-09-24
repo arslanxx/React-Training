@@ -30,6 +30,7 @@ export default function TvShowComponent({
         handleSearchReq={searchReq}
         handleGetReq={tvShowReq}
         component={"tv"}
+        page={page}
       />
       <Container>
         <Grid container>

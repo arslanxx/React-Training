@@ -10,7 +10,12 @@ function* peopleSaga({ payload, page }) {
   try {
     const peopleList = !payload
       ? yield call(getPeopleList, page)
-      : yield call(getSearchList, payload.query, payload.component);
+      : yield call(
+          getSearchList,
+          payload.query,
+          payload.component,
+          payload.page
+        );
     yield put(fetchPeopleSuccess(peopleList.data));
   } catch (e) {
     yield put(fetchPeopleFailure(e.response.data.status_message));

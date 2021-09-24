@@ -10,12 +10,13 @@ export default function SearchBar({
   handleSearchReq,
   handleGetReq,
   component,
+  page,
 }) {
   const searchClass = searchStlyes();
   const handleTextChange = (value) => {
     value === ""
       ? handleGetReq()
-      : handleSearchReq({ query: value, component: component });
+      : handleSearchReq({ query: value, component: component, page: page });
   };
   return (
     <React.Fragment>

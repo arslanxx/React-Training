@@ -13,7 +13,12 @@ function* trendingSaga({ payload, page }) {
   try {
     const trendingList = !payload
       ? yield call(getTrendingShowsList, page)
-      : yield call(getSearchList, payload.query, payload.component);
+      : yield call(
+          getSearchList,
+          payload.query,
+          payload.component,
+          payload.page
+        );
     yield put(fetchTrendingSuccess(trendingList.data));
   } catch (e) {
     yield put(fetchTrendingFailure(e.response.data.status_message));

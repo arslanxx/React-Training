@@ -30,6 +30,7 @@ export default function Person({
         handleSearchReq={searchReq}
         handleGetReq={peopleReq}
         component={"person"}
+        page={page}
       />
       <Container>
         <Grid container>
