@@ -17,20 +17,23 @@ export default function TvShowComponent({
 }) {
   const classes = gridPadding();
   const [page, setPage] = useState(tvPage);
+  const component = "tv";
+  const [tvShowSearch, setTvShowSearch] = useState("");
+
   useEffect(() => {
     window.scrollTo(0, 0);
-    tvShowReq(page);
-  }, [page]);
+    tvShowSearch === ""
+      ? tvShowReq(page)
+      : searchReq({ query: tvShowSearch, component: component, page: page });
+  }, [page, tvShowSearch]);
   const handlePageChange = (event, newPage) => {
     setPage(newPage);
   };
   return (
     <Fragment>
       <SearchBar
-        handleSearchReq={searchReq}
-        handleGetReq={tvShowReq}
-        component={"tv"}
-        page={page}
+        component={component}
+        handleSearchText={(value) => setTvShowSearch(value)}
       />
       <Container>
         <Grid container>

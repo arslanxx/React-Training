@@ -17,20 +17,24 @@ export default function Person({
 }) {
   const classes = gridPadding();
   const [page, setPage] = useState(peoplePage);
+  const component = "person";
+  const [personSearch, setPersonSearch] = useState("");
+
   useEffect(() => {
     window.scrollTo(0, 0);
-    peopleReq(page);
-  }, [page]);
+    personSearch === ""
+      ? peopleReq(page)
+      : searchReq({ query: personSearch, component: component, page: page });
+  }, [page, personSearch]);
+
   const handlePageChange = (event, newPage) => {
     setPage(newPage);
   };
   return (
     <Fragment>
       <SearchBar
-        handleSearchReq={searchReq}
-        handleGetReq={peopleReq}
-        component={"person"}
-        page={page}
+        component={component}
+        handleSearchText={(value) => setPersonSearch(value)}
       />
       <Container>
         <Grid container>

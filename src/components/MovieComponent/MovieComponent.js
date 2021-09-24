@@ -17,20 +17,24 @@ export default function MovieComponent({
 }) {
   const classes = gridPadding();
   const [page, setPage] = useState(moviePage);
+  const component = "movie";
+  const [movieSearch, setMovieSearch] = useState("");
+
   useEffect(() => {
     window.scrollTo(0, 0);
-    movieReq(page);
-  }, [page]);
+    movieSearch === ""
+      ? movieReq(page)
+      : searchReq({ query: movieSearch, component: component, page: page });
+  }, [page, movieSearch]);
+
   const handlePageChange = (event, newPage) => {
     setPage(newPage);
   };
   return (
     <Fragment>
       <SearchBar
-        handleSearchReq={searchReq}
-        handleGetReq={movieReq}
-        page={page}
-        component={"movie"}
+        component={component}
+        handleSearchText={(value) => setMovieSearch(value)}
       />
       <Container>
         {error && <h1>{error}</h1>}

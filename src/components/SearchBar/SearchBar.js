@@ -23,7 +23,7 @@ export default function SearchBar({ component, handleSearchText }) {
             Welcome
           </Typography>
           <DebounceInput
-            minLength={4}
+            minLength={3}
             debounceTimeout={300}
             placeholder={`Search for a ${component}`}
             onChange={(e) => setText(e.target.value)}

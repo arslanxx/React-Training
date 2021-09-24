@@ -17,20 +17,23 @@ export default function Person({
 }) {
   const classes = gridPadding();
   const [page, setPage] = useState(trendingPage);
+  const component = "movie";
+  const [movieSearch, setMovieSearch] = useState("");
+
   useEffect(() => {
     window.scrollTo(0, 0);
-    trendingReq(page);
-  }, [page]);
+    movieSearch === ""
+      ? trendingReq(page)
+      : searchReq({ query: movieSearch, component: component, page: page });
+  }, [page, movieSearch]);
   const handlePageChange = (event, newPage) => {
     setPage(newPage);
   };
   return (
     <Fragment>
       <SearchBar
-        handleSearchReq={searchReq}
-        handleGetReq={trendingReq}
-        component={"movie"}
-        page={page}
+        component={component}
+        handleSearchText={(value) => setMovieSearch(value)}
       />
 
       {/* <Box > */}
