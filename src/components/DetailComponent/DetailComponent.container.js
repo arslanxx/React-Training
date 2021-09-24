@@ -1,0 +1,24 @@
+import { connect } from "react-redux";
+import {
+  getDetailData,
+  getDetailError,
+  showDetailLoader,
+  showReviews,
+} from "../../store/selectors/detailSelector";
+import DetailComponent from "./DetailComponent";
+import { fetchDetailRequest } from "../../store/actions/detailsActions";
+
+const mapStateToProps = (state) => {
+  return {
+    detailData: getDetailData(state),
+    detailLoader: showDetailLoader(state),
+    error: getDetailError(state),
+    reviews: showReviews(state),
+  };
+};
+
+const mapDispatchToProps = {
+  detailReq: fetchDetailRequest,
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(DetailComponent);
