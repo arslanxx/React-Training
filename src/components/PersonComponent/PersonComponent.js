@@ -25,7 +25,7 @@ export default function Person({
     personSearch === ""
       ? peopleReq(page)
       : searchReq({ query: personSearch, component: component, page: page });
-  }, [page, personSearch]);
+  }, [page, personSearch, searchReq, peopleReq]);
 
   const handlePageChange = (event, newPage) => {
     setPage(newPage);

@@ -25,7 +25,7 @@ export default function Person({
     movieSearch === ""
       ? trendingReq(page)
       : searchReq({ query: movieSearch, component: component, page: page });
-  }, [page, movieSearch]);
+  }, [page, movieSearch, trendingReq, searchReq]);
   const handlePageChange = (event, newPage) => {
     setPage(newPage);
   };

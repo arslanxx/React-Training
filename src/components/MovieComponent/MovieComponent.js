@@ -25,7 +25,7 @@ export default function MovieComponent({
     movieSearch === ""
       ? movieReq(page)
       : searchReq({ query: movieSearch, component: component, page: page });
-  }, [page, movieSearch]);
+  }, [page, movieSearch, movieReq, searchReq]);
 
   const handlePageChange = (event, newPage) => {
     setPage(newPage);

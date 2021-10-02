@@ -21,7 +21,7 @@ export default function DetailComponent({
   useEffect(() => {
     window.scrollTo(0, 0);
     detailReq(routesData);
-  }, [routesData]);
+  }, [routesData, detailReq]);
 
   const concatMovieGenres = (data) => {
     let str = "";

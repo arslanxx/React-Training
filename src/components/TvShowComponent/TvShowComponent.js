@@ -25,7 +25,7 @@ export default function TvShowComponent({
     tvShowSearch === ""
       ? tvShowReq(page)
       : searchReq({ query: tvShowSearch, component: component, page: page });
-  }, [page, tvShowSearch]);
+  }, [page, tvShowSearch, tvShowReq, searchReq]);
   const handlePageChange = (event, newPage) => {
     setPage(newPage);
   };

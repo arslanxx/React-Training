@@ -12,7 +12,7 @@ export default function SearchBar({ component, handleSearchText }) {
 
   useEffect(() => {
     handleSearchText(text);
-  }, [text]);
+  }, [text, handleSearchText]);
 
   return (
     <React.Fragment>
